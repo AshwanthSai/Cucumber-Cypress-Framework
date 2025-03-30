@@ -1,0 +1,7 @@
+{
+    "testFiles": "**/*.feature",
+    "video": false,
+    "screenshotOnRunFailure": true,
+    "numTestsKeptInMemory": 5,
+    "experimentalRunAllSpecs": true
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "description": "  As a customer\n  I want to browse the ecommerce website\n  So that I can find products quickly",
+    "keyword": "Feature",
+    "name": "SydneyKart Main Page",
+    "line": 1,
+    "id": "sydneykart-main-page",
+    "tags": [],
+    "uri": "Login.feature",
+    "elements": [
+      {
+        "id": "sydneykart-main-page;opening-the-ecommerce-home-page",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Opening the Ecommerce Home Page",
+        "tags": [
+          {
+            "name": "@single",
+            "line": 12
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 112000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 757000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I see \"SydneyKart\" in the title",
+            "result": {
+              "status": "passed",
+              "duration": 117000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the search field is visible",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

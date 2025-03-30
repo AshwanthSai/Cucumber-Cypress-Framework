@@ -4,11 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "report": "node ./cypress/generateReport.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^11.2.0"
+  },
+  "dependencies": {
+    "cypress": "^9.7.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "multiple-cucumber-html-reporter": "^3.9.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

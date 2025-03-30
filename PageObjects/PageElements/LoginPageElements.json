@@ -1,0 +1,5 @@
+{
+    "UsernameField" : ":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input",
+    "PaswordField" : ":nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input",
+    "LoginButton" : ".oxd-button"
+}
