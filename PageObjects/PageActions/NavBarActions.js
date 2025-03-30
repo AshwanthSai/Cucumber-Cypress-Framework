@@ -30,7 +30,12 @@ class NavBarActions {
     }
 
     search(searchTerm){
-        cy.get(navBarElements.search_bar).type(searchTerm);
+        if(searchTerm == undefined ) {
+            cy.get(navBarElements.search_button).click()
+        } else {
+            cy.get(navBarElements.search_bar).type(searchTerm);
+            
+        }
         return this;
     }
 }

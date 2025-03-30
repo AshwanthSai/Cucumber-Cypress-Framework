@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js",
-    "report": "node ./cypress/generateReport.js"
+    "report": "node ./cypress/generateReport.js",
+    "headless": "npx cypress-tags run -e TAGS=\"@%npm_config_tags%\"",
+    "headless:all": "npx cypress-tags run",
+    "headed": "npx cypress-tags run --headed -e TAGS=\"@%npm_config_tags%\"",
+    "headed:all": "npx cypress-tags run --headed"
   },
   "author": "",
   "license": "ISC",

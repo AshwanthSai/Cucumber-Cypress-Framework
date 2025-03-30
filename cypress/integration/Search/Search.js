@@ -1,14 +1,14 @@
-const { Given, When, Then, And, But } = require("cypress-cucumber-preprocessor/steps");
+const { Given, When, Then, And } = require("cypress-cucumber-preprocessor/steps");
 const NavBarActions = require("../../../PageObjects/PageActions/NavBarActions");
+const SearchPageActions = require("../../../PageObjects/PageActions/SearchPageActions");
+
+let navBarAction = new NavBarActions();
+let searchPageActions = new SearchPageActions();
 
 const url = 'https://portfoliosai.link/sydneykart/';
 
-let navBarAction = new NavBarActions();
-
 // Simple global handler for uncaught exceptions
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // Returning false prevents Cypress from failing the test when
-  // uncaught exceptions occur in the application code
   return false;
 });
 
@@ -21,29 +21,23 @@ Given('my internet connection is active', () => {
   cy.log('Internet connection is assumed to be active');
 });
 
-Given('I open Home Page', { timeout: 10000 }, async () => {
-  await cy.visit(url, { 
+Given('I open Home Page', { timeout: 10000 }, () => {
+  cy.visit(url, { 
     timeout: 10000,
-    failOnStatusCode: false, // Necessary for SPA, React Application
-  })
+    failOnStatusCode: false,
+  });
 });
 
 
-/* 
-  Scenario: Basic search functionality
-*/
-When('I type {string} into the search field', (searchTerm) => {
-  
+When('I enter {string} in the search field', (keyword) => {
+  navBarAction.search(keyword)
 });
 
 And('I click the search button', () => {
-  // Stub implementation
+  navBarAction.search()
 });
 
-Then('I should see search results for {string}', (searchTerm) => {
-  // Stub implementation
+Then('I should see products related to {string}', (keyword) => {
+   searchPageActions.verifySearchResults(keyword)
 });
 
-But('I should not see {string}', (content) => {
-  // Stub implementation
-});

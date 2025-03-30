@@ -1,5 +1,6 @@
 {
     "logo":".responsive-logo",
     "search_bar": "#search_field",
-    "login_button": "#login_btn"
+    "login_button": "#login_btn",
+    "search_button": "#search_btn"
 }

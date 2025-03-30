@@ -1,17 +1,21 @@
-Feature: SydneyKart Ecommerce Search Functionality
-
+Feature: SydneyKart Product Search
   As a customer
-  I want to browse the ecommerce website
-  So that I can find and purchase products quickly
+  I want to search for products
+  So that I can find items I wish to purchase
 
   Background:
     Given I have opened my web browser
     And my internet connection is active
-    And I am on the SydneyKart homepage
+    And I open Home Page
 
-  @regression
-  Scenario: Basic search functionality
-    When I type "apple" into the search field
+  @search @regression
+  Scenario Outline: Search for products with different keywords
+    When I enter "<keyword>" in the search field
     And I click the search button
-    Then I should see search results for "apple"
-    But I should not see "orange"
+    Then I should see products related to "<keyword>"
+
+    Examples:
+      | keyword    |
+      | laptop     |
+      | headphones |
+      | camera     |

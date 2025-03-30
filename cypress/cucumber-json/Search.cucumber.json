@@ -1,21 +1,25 @@
 [
   {
-    "description": "  As a customer\n  I want to browse the ecommerce website\n  So that I can find products quickly",
+    "description": "  As a customer\n  I want to search for products\n  So that I can find items I wish to purchase",
     "keyword": "Feature",
-    "name": "SydneyKart Main Page",
+    "name": "SydneyKart Product Search",
     "line": 1,
-    "id": "sydneykart-main-page",
+    "id": "sydneykart-product-search",
     "tags": [],
     "uri": "Search.feature",
     "elements": [
       {
-        "id": "sydneykart-main-page;opening-the-ecommerce-home-page",
+        "id": "sydneykart-product-search;search-for-products-with-different-keywords",
         "keyword": "Scenario",
-        "line": 12,
-        "name": "Opening the Ecommerce Home Page",
+        "line": 19,
+        "name": "Search for products with different keywords",
         "tags": [
           {
-            "name": "@single",
+            "name": "@search",
+            "line": 11
+          },
+          {
+            "name": "@regression",
             "line": 11
           }
         ],
@@ -24,51 +28,219 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 8,
+            "line": 7,
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 107000000
+              "duration": 89000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 9,
-            "name": "my internet connection is active",
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 13,
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 2824000000
+              "duration": 4151000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I see \"SydneyKart\" in the title",
+            "keyword": "When ",
+            "line": 13,
+            "name": "I enter \"laptop\" in the search field",
             "result": {
               "status": "passed",
-              "duration": 120000000
+              "duration": 3256000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 15,
-            "name": "the search field is visible",
+            "line": 14,
+            "name": "I click the search button",
             "result": {
               "status": "passed",
-              "duration": 21000000
+              "duration": 190000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "I should see products related to \"laptop\"",
+            "result": {
+              "status": "passed",
+              "duration": 64000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-product-search;search-for-products-with-different-keywords",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Search for products with different keywords",
+        "tags": [
+          {
+            "name": "@search",
+            "line": 11
+          },
+          {
+            "name": "@regression",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 129000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 661000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I enter \"headphones\" in the search field",
+            "result": {
+              "status": "passed",
+              "duration": 1759000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click the search button",
+            "result": {
+              "status": "passed",
+              "duration": 162000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "I should see products related to \"headphones\"",
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-product-search;search-for-products-with-different-keywords",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Search for products with different keywords",
+        "tags": [
+          {
+            "name": "@search",
+            "line": 11
+          },
+          {
+            "name": "@regression",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 104000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 704000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I enter \"camera\" in the search field",
+            "result": {
+              "status": "passed",
+              "duration": 2037000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click the search button",
+            "result": {
+              "status": "passed",
+              "duration": 215000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "I should see products related to \"camera\"",
+            "result": {
+              "status": "passed",
+              "duration": 48000000
             }
           }
         ]
