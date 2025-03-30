@@ -1,4 +1,5 @@
 {
     "logo":".responsive-logo",
-    "search_bar": "#search_field"
+    "search_bar": "#search_field",
+    "login_button": "#login_btn"
 }

@@ -1,15 +1,27 @@
-Feature: SydneyKart Main Page
+Feature: SydneyKart Authentication
 
   As a customer
-  I want to browse the ecommerce website
-  So that I can find products quickly
+  I want to log into my account
+  So that I can access my personal information
 
   Background:
     Given I have opened my web browser
     And my internet connection is active
     And I open Home Page
 
-  @single
-  Scenario: Opening the Ecommerce Home Page
-    Then I see "SydneyKart" in the title
-    And the search field is visible
+  @login @smoke
+  Scenario Outline: User authentication with different credentials
+    When I click on the login button
+    And I enter "<email>" in the email field
+    And I enter "<password>" in the password field
+    And I click the submit button
+    Then I should see message "<message>"
+    And the system should "<redirect_action>"
+
+    Examples:
+      | email             | password         | message                             | redirect_action   |
+      | test@example.com  | password123      | Invalid email or password           |  No Redirect      | 
+      | test@admin.com    | password12345    | Invalid email or password           |  No Redirect      | 
+      | test@admin.com    | test@admin.com   |                                     |  Redirect to Home | 
+  
+

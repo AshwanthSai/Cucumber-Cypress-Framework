@@ -1,13 +1,14 @@
 const { Given, When, Then, And, But } = require("cypress-cucumber-preprocessor/steps");
 const NavBarActions = require("../../../PageObjects/PageActions/NavBarActions");
+const LoginPageActions = require("../../../PageObjects/PageActions/LoginPageActions");
 
 const url = 'https://portfoliosai.link/sydneykart/';
 
 let navBarAction = new NavBarActions();
+let loginPageActions = new LoginPageActions();
+
 // Simple global handler for uncaught exceptions
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // Returning false prevents Cypress from failing the test when
-  // uncaught exceptions occur in the application code
   return false;
 });
 
@@ -20,23 +21,40 @@ Given('my internet connection is active', () => {
   cy.log('Internet connection is assumed to be active');
 });
 
-Given('I open Home Page', { timeout: 10000 }, async () => {
-  await cy.visit(url, { 
+Given('I open Home Page', { timeout: 10000 }, () => {
+  // Setup network interceptions
+  cy.intercept('GET', '**/login*').as('loginPageLoad');
+  cy.intercept('POST', '**/login*').as('loginRequest');
+  
+  cy.visit(url, { 
     timeout: 10000,
-    failOnStatusCode: false, // Necessary for SPA, React Application
-  })
+    failOnStatusCode: false,
+  });
 });
 
-// Scenario: Opening the Ecommerce Home Page
-
-Then('I see "SydneyKart" in the title', async() => {
-  await navBarAction.verifyLogo()
+// Scenario: User authentication with different credentials
+When('I click on the login button', () => {
+  navBarAction.clickLogin();
+  cy.url().should('include', '/login');
 });
 
-Then('the search field is visible', async() => {
-  await cy.get('#search_field').should("exist");
+When('I enter {string} in the email field', (email) => {
+  loginPageActions.formLoaded();
+  loginPageActions.enterEmail(email);
 });
 
-Then('the home page is visible', async() => {
-  await cy.get('#search_field').should("exist");
+When('I enter {string} in the password field', (password) => {
+  loginPageActions.enterPassword(password);
+});
+
+When('I click the submit button', () => {
+  loginPageActions.clickLogin();
+});
+
+Then('I should see message {string}', (message) => {
+  loginPageActions.getMessage(message);
+});
+
+Then('the system should {string}', (redirect_action) => {
+  loginPageActions.verifyRedirectAction(redirect_action);
 });

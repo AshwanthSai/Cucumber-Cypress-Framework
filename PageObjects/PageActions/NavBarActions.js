@@ -18,6 +18,17 @@ class NavBarActions {
         return this;
     }
 
+    verifyLogin() {
+        cy.get(navBarElements.login_button).should("exist");
+        return this;
+    }
+
+    clickLogin(){
+        cy.get(navBarElements.login_button).click();
+        return this;
+
+    }
+
     search(searchTerm){
         cy.get(navBarElements.search_bar).type(searchTerm);
         return this;
