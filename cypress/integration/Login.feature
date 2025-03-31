@@ -9,8 +9,18 @@ Feature: SydneyKart Authentication
     And my internet connection is active
     And I open Home Page
 
+
   @login @smoke
-  Scenario Outline: User authentication with different credentials
+  Scenario: Successful login
+    When I click on the login button
+    And I enter "test@admin.com" in the email field
+    And I enter "test@admin.com" in the password field
+    And I click the submit button
+    Then the system should "Redirect to Home"
+    
+
+  @login @smoke
+  Scenario Outline: Failed login attempts
     When I click on the login button
     And I enter "<email>" in the email field
     And I enter "<password>" in the password field

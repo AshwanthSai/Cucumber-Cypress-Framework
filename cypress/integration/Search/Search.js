@@ -1,43 +1,44 @@
-const { Given, When, Then, And } = require("cypress-cucumber-preprocessor/steps");
-const NavBarActions = require("../../../PageObjects/PageActions/NavBarActions");
-const SearchPageActions = require("../../../PageObjects/PageActions/SearchPageActions");
+const { Given, When, Then, And, Before } = require("cypress-cucumber-preprocessor/steps");
 
-let navBarAction = new NavBarActions();
-let searchPageActions = new SearchPageActions();
-
-const url = 'https://portfoliosai.link/sydneykart/';
-
-// Simple global handler for uncaught exceptions
-Cypress.on('uncaught:exception', (err, runnable) => {
-  return false;
-});
-
-// Background steps
-Given('I have opened my web browser', () => {
-  cy.log('Web browser is open by default in Cypress');
-});
-
-Given('my internet connection is active', () => {
-  cy.log('Internet connection is assumed to be active');
-});
-
-Given('I open Home Page', { timeout: 10000 }, () => {
-  cy.visit(url, { 
-    timeout: 10000,
-    failOnStatusCode: false,
-  });
-});
-
-
+// Search steps
 When('I enter {string} in the search field', (keyword) => {
   navBarAction.search(keyword)
 });
 
-And('I click the search button', () => {
+When('I click the search button', () => {
   navBarAction.search()
 });
 
+// Pagination steps
+When("I view the pagination component", () => {
+  paginationElementActions.paginationExists()
+});
+
+When("I click on the {string} button", (button) => {
+  paginationElementActions.clickButton(button)
+});
+
+// Verification steps
 Then('I should see products related to {string}', (keyword) => {
    searchPageActions.verifySearchResults(keyword)
 });
 
+Then('I should not see any new products', () => {
+  searchPageActions.verifyNoSearchAction()
+});
+
+Then("I should see the current page indicator showing {string}", (page) => {
+  paginationElementActions.verifyCurrentPage(page)
+});
+
+Then("I should see navigation options for multiple pages", () => {
+  paginationElementActions.verifyMultiPageNavigation()
+});
+
+Then("I should be navigated to page {string}", (page) => {
+  paginationElementActions.verifyCurrentPage(page)
+});
+
+Then("the current page indicator should show {string}", (page) => {
+  paginationElementActions.verifyCurrentPage(page)
+});

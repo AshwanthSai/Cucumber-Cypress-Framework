@@ -11,16 +11,16 @@
       {
         "id": "sydneykart-product-search;search-for-products-with-different-keywords",
         "keyword": "Scenario",
-        "line": 19,
+        "line": 20,
         "name": "Search for products with different keywords",
         "tags": [
           {
             "name": "@search",
-            "line": 11
+            "line": 12
           },
           {
             "name": "@regression",
-            "line": 11
+            "line": 12
           }
         ],
         "type": "scenario",
@@ -32,7 +32,7 @@
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 89000000
+              "duration": 78000000
             }
           },
           {
@@ -52,116 +52,37 @@
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 4151000000
+              "duration": 2355000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 13,
+            "line": 14,
             "name": "I enter \"laptop\" in the search field",
             "result": {
               "status": "passed",
-              "duration": 3256000000
+              "duration": 1931000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 14,
+            "line": 15,
             "name": "I click the search button",
             "result": {
               "status": "passed",
-              "duration": 190000000
+              "duration": 133000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 15,
+            "line": 16,
             "name": "I should see products related to \"laptop\"",
             "result": {
               "status": "passed",
-              "duration": 64000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "sydneykart-product-search;search-for-products-with-different-keywords",
-        "keyword": "Scenario",
-        "line": 20,
-        "name": "Search for products with different keywords",
-        "tags": [
-          {
-            "name": "@search",
-            "line": 11
-          },
-          {
-            "name": "@regression",
-            "line": 11
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I have opened my web browser",
-            "result": {
-              "status": "passed",
-              "duration": 129000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "my internet connection is active",
-            "result": {
-              "status": "passed",
-              "duration": 2000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 9,
-            "name": "I open Home Page",
-            "result": {
-              "status": "passed",
-              "duration": 661000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I enter \"headphones\" in the search field",
-            "result": {
-              "status": "passed",
-              "duration": 1759000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 14,
-            "name": "I click the search button",
-            "result": {
-              "status": "passed",
-              "duration": 162000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 15,
-            "name": "I should see products related to \"headphones\"",
-            "result": {
-              "status": "passed",
-              "duration": 35000000
+              "duration": 32000000
             }
           }
         ]
@@ -174,11 +95,11 @@
         "tags": [
           {
             "name": "@search",
-            "line": 11
+            "line": 12
           },
           {
             "name": "@regression",
-            "line": 11
+            "line": 12
           }
         ],
         "type": "scenario",
@@ -190,7 +111,7 @@
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 104000000
+              "duration": 201000000
             }
           },
           {
@@ -200,7 +121,7 @@
             "name": "my internet connection is active",
             "result": {
               "status": "passed",
-              "duration": 3000000
+              "duration": 18000000
             }
           },
           {
@@ -210,37 +131,374 @@
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 704000000
+              "duration": 717000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 13,
-            "name": "I enter \"camera\" in the search field",
+            "line": 14,
+            "name": "I enter \"headphones\" in the search field",
             "result": {
               "status": "passed",
-              "duration": 2037000000
+              "duration": 3330000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 14,
+            "line": 15,
             "name": "I click the search button",
             "result": {
               "status": "passed",
-              "duration": 215000000
+              "duration": 135000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
+            "line": 16,
+            "name": "I should see products related to \"headphones\"",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-product-search;search-for-products-with-different-keywords",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Search for products with different keywords",
+        "tags": [
+          {
+            "name": "@search",
+            "line": 12
+          },
+          {
+            "name": "@regression",
+            "line": 12
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 173000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 1006000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I enter \"camera\" in the search field",
+            "result": {
+              "status": "passed",
+              "duration": 3123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
             "line": 15,
+            "name": "I click the search button",
+            "result": {
+              "status": "passed",
+              "duration": 138000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
             "name": "I should see products related to \"camera\"",
             "result": {
               "status": "passed",
-              "duration": 48000000
+              "duration": 53000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-product-search;empty-search-validation",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Empty search validation",
+        "tags": [
+          {
+            "name": "@search",
+            "line": 24
+          },
+          {
+            "name": "@smoke",
+            "line": 24
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 168000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 695000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I enter \"\" in the search field",
+            "result": {
+              "status": "passed",
+              "duration": 2920000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "I click the search button",
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-product-search;pagination-navigation-for-search-results",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "Pagination navigation for search results",
+        "tags": [
+          {
+            "name": "@search",
+            "line": 31
+          },
+          {
+            "name": "@pagination",
+            "line": 31
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 176000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 692000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 33,
+            "name": "I enter \"laptop\" in the search field",
+            "result": {
+              "status": "passed",
+              "duration": 2145000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "I click the search button",
+            "result": {
+              "status": "passed",
+              "duration": 136000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "I view the pagination component",
+            "result": {
+              "status": "passed",
+              "duration": 36000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 37,
+            "name": "I should see the current page indicator showing \"1\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "I should see navigation options for multiple pages",
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 40,
+            "name": "I click on the \"Next\" button",
+            "result": {
+              "status": "passed",
+              "duration": 304000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "I should be navigated to page \"2\"",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "the current page indicator should show \"2\"",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "I click on the \"Previous\" button",
+            "result": {
+              "status": "passed",
+              "duration": 221000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "I should be navigated to page \"1\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "the current page indicator should show \"1\"",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 48,
+            "name": "I click on the \"3\" button",
+            "result": {
+              "status": "passed",
+              "duration": 196000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 49,
+            "name": "I should be navigated to page \"3\"",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "the current page indicator should show \"3\"",
+            "result": {
+              "status": "passed",
+              "duration": 24000000
             }
           }
         ]

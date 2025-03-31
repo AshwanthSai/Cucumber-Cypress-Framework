@@ -24,13 +24,14 @@ class NavBarActions {
     }
 
     clickLogin(){
-        cy.get(navBarElements.login_button).click();
+        // For Multiple Logins, sometime the loading bar covers the button
+        cy.get(navBarElements.login_button).click({force: true});
         return this;
 
     }
 
     search(searchTerm){
-        if(searchTerm == undefined ) {
+        if(searchTerm == undefined ||  searchTerm == "") {
             cy.get(navBarElements.search_button).click()
         } else {
             cy.get(navBarElements.search_bar).type(searchTerm);

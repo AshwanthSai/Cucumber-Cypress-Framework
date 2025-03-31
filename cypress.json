@@ -2,6 +2,7 @@
     "testFiles": "**/*.feature",
     "video": false,
     "screenshotOnRunFailure": true,
-    "numTestsKeptInMemory": 5,
-    "experimentalRunAllSpecs": true
+    "numTestsKeptInMemory": 5, 
+    "experimentalRunAllSpecs": true,
+    "pageLoadTimeout": 30000
 }

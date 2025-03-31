@@ -1,0 +1,13 @@
+{
+    "pagination_container": ".pagination",
+    "active_page": ".page-item.active > .page-link",
+    "pagination_First": ".pagination > li:first-child > .page-link",
+    "pagination_Prev": ".pagination > li:nth-child(2) > .page-link",
+    "pagination_Next": ".pagination > li:nth-last-child(2) > .page-link",
+    "pagination_Last": ".pagination > li:last-child > .page-link",
+    "pagination_page1": ".pagination > li:nth-child(3) > .page-link",
+    "pagination_page2": ".pagination > li:nth-child(4) > .page-link",
+    "pagination_page3": ".pagination > li:nth-child(5) > .page-link",
+    "pagination_page4": ".pagination > li:nth-child(6) > .page-link",
+    "pagination_pageByNumber": ".pagination > li > .page-link[aria-label='Go to page number {0}']"
+}
