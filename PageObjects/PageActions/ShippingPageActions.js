@@ -10,7 +10,7 @@ class ShippingPageActions {
             city: faker.location.city(),
             phone: faker.phone.number('##########'), // 10 digit phone number
             postalCode: faker.location.zipCode('#####'),
-            country: 'Andorra' // Using a fixed country as dropdown options are limited
+            country: 'Barbados' // Using a fixed country as dropdown options are limited
         };
     }
     
@@ -52,22 +52,60 @@ class ShippingPageActions {
                 .should('be.visible')
                 .select(data.country);
             cy.log(`Selected country: ${data.country}`);
-            
-            // Click continue button
+
             cy.get(shippingPageElements.shipping_continue_button)
-                .should('be.visible')
-                .click();
-            cy.log('Clicked continue button');
-            
-            // Verify redirection to payment method page
-            cy.url().should('include', '/payment_method');
-            cy.log('Successfully submitted shipping details');
+            .should('exist')
+            .should('be.visible')
+            .should('not.be.disabled')
+            .click();
         } catch (e) {
             cy.log(`Error entering shipping details: ${e.message}`);
             throw new Error(`Failed to enter shipping details. Original error: ${e.message}`);
         }
         
         return this;
+    }
+
+    verifyPaymentPage() {
+        cy.log('Verifying payment method page is loaded');
+        try {
+            // Verify the URL is the payment method page
+            cy.url({ timeout: 10000 })
+                .should('eq', 'https://portfoliosai.link/sydneykart/payment_method');
+            
+            cy.log('Successfully verified payment method page URL');
+            
+            // Additional verification that key payment page elements exist
+            cy.get('body').contains('Payment Method')
+                .should('exist')
+                .and('be.visible');
+                
+            cy.log('Successfully verified payment method page content');
+        } catch (e) {
+            cy.log(`Error verifying payment method page: ${e.message}`);
+            throw new Error(`Failed to verify payment method page. Original error: ${e.message}`);
+        }
+        
+        return this;
+    }
+
+    clickContinuetoPayment(){
+        cy.log('Moving to Payment');
+        try {
+            cy.get(shippingPageElements.moveToCheckout)
+                .should('exist')
+                .should('be.visible')
+                .should('not.be.disabled')
+                .click();
+                
+            // Verify we've moved to the next step (payment method)
+            cy.url().should('include', '/payment');
+            cy.log('Successfully submitted shipping form');
+        } catch (e) {
+            cy.log(`Error submitting shipping form: ${e.message}`);
+            throw new Error(`Failed to submit shipping form. Original error: ${e.message}`);
+        }
+        return this;;
     }
 
     verifyShippingPage() {
@@ -92,6 +130,40 @@ class ShippingPageActions {
             throw new Error(`Failed to verify shipping page. Original error: ${e.message}`);
         }
         
+        return this;
+    }
+
+    selectCardPayment() {
+        cy.log('Selecting card payment method');
+        try {
+            // First check if we're on the payment method page
+            cy.url().should('include', '/payment_method');
+            
+            cy.get(shippingPageElements.card_payment_radio)  
+                .should('exist')
+                .click();
+                
+        } catch (e) {
+            cy.log(`Error selecting card payment: ${e.message}`);
+            throw new Error(`Failed to select card payment. Original error: ${e.message}`);
+        }
+        return this;
+    }
+
+    selectCashPayment() {
+        cy.log('Selecting card payment method');
+        try {
+            // First check if we're on the payment method page
+            cy.url().should('include', '/payment_method');
+            
+            cy.get(shippingPageElements.cash_payment_radio)  
+                .should('exist')
+                .click();
+                
+        } catch (e) {
+            cy.log(`Error selecting card payment: ${e.message}`);
+            throw new Error(`Failed to select card payment. Original error: ${e.message}`);
+        }
         return this;
     }
 

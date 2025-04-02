@@ -1,0 +1,6 @@
+{
+    "card_payment_radio":"#cardradio",
+    "cash_payment_radio":"#codradio",
+    "moveToCheckout":"#checkout_btn",
+    "confirm_payment_method":"#shipping_btn"
+}

@@ -11,6 +11,8 @@ const LoginPageActions = require('../../../PageObjects/PageActions/LoginPageActi
 const CartPageActions = require('../../../PageObjects/PageActions/CartPageActions');
 const ShippingPageActions = require("../../../PageObjects/PageActions/ShippingPageActions");
 const MyProfileActions = require("../../../PageObjects/PageActions/MyProfilePageActions");
+const PaymentPageActions = require("../../../PageObjects/PageActions/PaymentPageActions");
+const OrderDetailsPageActions = require("../../../PageObjects/PageActions/OrderDetailsPageActions");
 
 
 // Create instances immediately
@@ -21,9 +23,11 @@ global.loginPageActions = new LoginPageActions();
 global.cartPageActions = new CartPageActions();
 global.shippingPageActions = new ShippingPageActions();
 global.myProfileActions = new MyProfileActions();
+global.paymentPageActions = new PaymentPageActions();
+global.orderDetailsPageActions = new PaymentPageActions();
+
 
 // Common Methods for all .feature files
-
 Given ('I am logged in as a registered user', (keyword) => {
   navBarActions.clickLogin()
   loginPageActions.loginAsRegisteredUser();

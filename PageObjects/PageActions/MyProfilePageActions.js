@@ -139,7 +139,6 @@ class MyProfilePageActions {
         return MyProfilePageActions;
     }
 
-
     static getMessage(expectedMessage) {
         if(expectedMessage === "") {
             cy.get('body').then($body => {
@@ -168,18 +167,30 @@ class MyProfilePageActions {
             .selectFile('cypress/fixtures/images/profile-avatar.jpg', { force: true });
     
             cy.log('File attached successfully');
-            
+        } catch (e) {
+            cy.log(`Error uploading avatar: ${e.message}`);
+            throw new Error(`Failed to upload avatar. Original error: ${e.message}`);
+        }
+        return this;
+    }
+
+    clickSubmitAvatarUpload() {
+        cy.log('Clicking Submit Avatar Upload button');
+        try {
             // Click upload button
             cy.get(myProfilePageElements.upload_avatar_button)
+                .should('exist')
                 .should('be.visible')
                 .click();
-                
+            
+            cy.wait(3000);
+
             // Verify success message
             MyProfilePageActions.getMessage("Avatar updated");
             cy.log('Avatar uploaded successfully');
         } catch (e) {
-            cy.log(`Error uploading avatar: ${e.message}`);
-            throw new Error(`Failed to upload avatar. Original error: ${e.message}`);
+            cy.log(`Error submitting avatar upload: ${e.message}`);
+            throw new Error(`Failed to submit avatar upload. Original error: ${e.message}`);
         }
         return this;
     }

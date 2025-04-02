@@ -2,41 +2,85 @@ const navBarElements = require("../PageElements/NavBarElements.json")
 const homePageElements = require("../PageElements/HomePageElements.json")
 
 class NavBarActions {
-    // Regular synchronous function
     verifyLogo() {
-        cy.get(navBarElements.logo).should("exist");
-        return this;
-    }
-
-    verifySearchBar() {
-        cy.get(navBarElements.search_bar).should("exist");
-        return this;
-    }
-
-    verifyHomePage() {
-        cy.get(homePageElements.Home_Page_Banner).should("exist");
-        return this;
-    }
-
-    verifyLogin() {
-        cy.get(navBarElements.login_button).should("exist");
-        return this;
-    }
-
-    clickLogin(){
-        // For Multiple Logins, sometime the loading bar covers the button
-        cy.get(navBarElements.login_button).click({force: true});
-        return this;
-    }
-
-    search(searchTerm){
-        if(searchTerm == undefined ||  searchTerm == "") {
-            cy.get(navBarElements.search_button).click()
-        } else {
-            cy.get(navBarElements.search_bar).type(searchTerm);
-            
+        cy.log('Verifying logo');
+        try {
+            cy.get(navBarElements.logo).should("exist");
+            cy.log('Logo verified successfully');
+        } catch (e) {
+            cy.log(`Error verifying logo: ${e.message}`);
+            throw new Error(`Failed to verify logo. Original error: ${e.message}`);
         }
         return this;
+    }
+    
+    verifySearchBar() {
+        cy.log('Verifying search bar');
+        try {
+            cy.get(navBarElements.search_bar).should("exist");
+            cy.log('Search bar verified successfully');
+        } catch (e) {
+            cy.log(`Error verifying search bar: ${e.message}`);
+            throw new Error(`Failed to verify search bar. Original error: ${e.message}`);
+        }
+        return this;
+    }
+    
+    verifyHomePage() {
+        cy.log('Verifying home page');
+        try {
+            cy.get(homePageElements.Home_Page_Banner).should("exist");
+            cy.log('Home page verified successfully');
+        } catch (e) {
+            cy.log(`Error verifying home page: ${e.message}`);
+            throw new Error(`Failed to verify home page. Original error: ${e.message}`);
+        }
+        return this;
+    }
+    
+    verifyLogin() {
+        cy.log('Verifying login button');
+        try {
+            cy.wait(3000);
+            cy.get(navBarElements.login_button, { timeout: 10000 })
+                .should("exist")
+                .should("be.visible");
+            cy.log('Login button verified successfully');
+
+        } catch (e) {
+            cy.log(`Error verifying login button: ${e.message}`);
+            throw new Error(`Failed to verify login button. Original error: ${e.message}`);
+        }
+        return this;
+    }
+    
+    clickLogin(){
+        cy.log('Clicking login button');
+        try {
+            // For Multiple Logins, sometime the loading bar covers the button
+            cy.get(navBarElements.login_button).click({force: true});
+            cy.log('Login button clicked successfully');
+        } catch (e) {
+            cy.log(`Error clicking login button: ${e.message}`);
+            throw new Error(`Failed to click login button. Original error: ${e.message}`);
+        }
+        return this;
+    }
+    
+    search(searchTerm){
+        cy.log(`Performing search: "${searchTerm || 'empty search'}"`);
+        try {
+            if(searchTerm == undefined ||  searchTerm == "") {
+                cy.get(navBarElements.search_button).click();
+                cy.log('Empty search performed');
+            } else {
+                cy.get(navBarElements.search_bar).type(searchTerm);
+                cy.log(`Search term "${searchTerm}" entered successfully`);
+            }
+        } catch (e) {
+            cy.log(`Error performing search: ${e.message}`);
+            throw new Error(`Failed to perform search. Original error: ${e.message}`);
+        }
     }
 
     verifyLoginStatus(expectedStatus) {

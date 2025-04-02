@@ -11,6 +11,15 @@ Feature: User Profile Management
     And I navigate to my account profile page
 
 
+  #Profile Image Upload Scenarios
+  Scenario: User successfully uploads a valid profile image
+    When I select the Upload Avatar option
+    And I upload a valid image file profile.jpg
+    And I click on the upload button
+    Then I should be navigated to Profile Page
+    And my profile picture should be updated with the new image
+
+
   #Profile Name Update Scenarios
   Scenario: User successfully updates their profile name
     When I click on the Update Profile button

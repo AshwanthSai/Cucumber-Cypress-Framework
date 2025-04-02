@@ -1,7 +1,8 @@
 {
     "shipping_form": "form.shadow.rounded.bg-body",
     "shipping_heading": "form.shadow.rounded.bg-body h2",
-    
+    "moveToCheckout":"#checkout_btn",
+
     "// Input fields": "----------------------------------------------",
     "shipping_address_field": "#address_field",
     "shipping_city_field": "#city_field",

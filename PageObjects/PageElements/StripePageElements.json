@@ -1,8 +1,12 @@
 {
     "// Container elements": "----------------------------------------------",
+    "card_payment_radio": "#cardradio",
+    "card_payment_button": "#shipping_btn",
     "payment_form": ".PaymentMethodForm",
     "email_display": ".ReadOnlyFormField-title",
     
+
+
     "// Card information section": "----------------------------------------------",
     "card_information_label": "label[for='cardForm-fieldset'] span",
     "card_number_field": "#cardNumber",

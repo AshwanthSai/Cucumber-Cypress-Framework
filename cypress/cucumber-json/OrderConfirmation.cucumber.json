@@ -32,7 +32,7 @@
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 108000000
+              "duration": 54000000
             }
           },
           {
@@ -42,7 +42,7 @@
             "name": "my internet connection is active",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 5000000
             }
           },
           {
@@ -52,7 +52,7 @@
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 1200000000
+              "duration": 674000000
             }
           },
           {
@@ -62,7 +62,7 @@
             "name": "I am logged in as a registered user",
             "result": {
               "status": "passed",
-              "duration": 1743000000
+              "duration": 5866000000
             }
           },
           {
@@ -71,8 +71,9 @@
             "line": 14,
             "name": "I have added \"Wireless Headphones\" to my cart",
             "result": {
-              "status": "passed",
-              "duration": 4347000000
+              "status": "failed",
+              "duration": 5102000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.stockCounter > .btn-primary`, but never found it.\n    at CartPageActions.addHeadphonesToCart (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:22:59)\n    at Context.eval (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:1146:19)\n    at Context.resolveAndRunStepDefinition (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:13844:29)\n    at Context.eval (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:13165:35)"
             }
           },
           {
@@ -81,8 +82,7 @@
             "line": 15,
             "name": "I have completed the checkout process",
             "result": {
-              "status": "passed",
-              "duration": 5512000000
+              "status": "skipped"
             }
           },
           {
@@ -91,19 +91,61 @@
             "line": 16,
             "name": "I should be redirected to the shipping details page",
             "result": {
-              "status": "passed",
-              "duration": 111000000
+              "status": "skipped"
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 17,
+            "line": 18,
             "name": "I enter my shipping details",
             "result": {
-              "status": "failed",
-              "duration": 7200000000,
-              "error_message": "AssertionError: Timed out retrying after 4000ms: expected 'https://portfoliosai.link/sydneykart/confirm_order' to include '/payment_method'\n    at ShippingPageActions.enterShippingData (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:676:18)\n    at Context.eval (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:877:23)\n    at Context.resolveAndRunStepDefinition (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:13542:29)\n    at Context.eval (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:12863:35)"
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I click continue to payment",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "I should be redirected to the payment selection page",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "I select Cash Payment as payment method",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I click continue to confirm payment",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "I should be redirected to my orders page",
+            "result": {
+              "status": "skipped"
             }
           }
         ]

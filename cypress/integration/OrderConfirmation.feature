@@ -14,4 +14,12 @@ Feature: SydneyKart Order Confirmation
     And I have added "Wireless Headphones" to my cart
     And I have completed the checkout process
     Then I should be redirected to the shipping details page
+
     When I enter my shipping details    
+    And I click continue to payment
+    Then I should be redirected to the payment selection page
+
+
+    When I select Cash Payment as payment method
+    And I click continue to confirm payment
+    Then I should be redirected to my orders page

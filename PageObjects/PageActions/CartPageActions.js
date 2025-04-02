@@ -1,6 +1,3 @@
-const navBarElements = require("../PageElements/NavBarElements.json")
-const homePageElements = require("../PageElements/HomePageElements.json")
-const loginPageElements = require("../PageElements/LoginPageElements.json")
 const cartPageElements = require("../PageElements/CartPageElements.json")
 
 const HEADPHONE_PRODUCT_LINK = Cypress.env('HEADPHONE_PRODUCT_LINK') || 'https://portfoliosai.link/sydneykart/product/wireless-headphones';
@@ -59,8 +56,7 @@ class CartPageActions {
                 .click({force: true});
             cy.log('Clicked on cart button');
             
-            // Wait for 2 seconds before clicking the checkout button
-            cy.wait(5000); // 5000 milliseconds = 5 seconds
+            cy.wait(5000); 
             cy.log('Waiting for 2 seconds before proceeding...');
 
             // Verify checkout button exists and is visible
@@ -75,7 +71,6 @@ class CartPageActions {
         }   
         return this;
     }
-
 }
 
 module.exports = CartPageActions;
