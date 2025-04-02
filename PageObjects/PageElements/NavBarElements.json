@@ -1,6 +1,12 @@
 {
-    "logo":".responsive-logo",
+    "logo": ".responsive-logo",
     "search_bar": "#search_field",
+    "search_button": "#search_btn",
     "login_button": "#login_btn",
-    "search_button": "#search_btn"
+    "profile_action_buttons": "#dropDownMenuButton",
+    "profile_dropdown": ".dropdown-menu",
+    "my_profile_option": "[href=`/sydneykart/me/profile`]",
+    "toast" : ".Toastify",
+    "toast_message" : ".Toastify__toast",
+    "toast_error_message" : ".Toastify__toast--error"
 }

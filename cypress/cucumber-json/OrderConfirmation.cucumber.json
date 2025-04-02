@@ -1,0 +1,113 @@
+[
+  {
+    "description": "  As a customer\n  I want to receive confirmation of my order\n  So that I can be assured my purchase was successful and track my delivery",
+    "keyword": "Feature",
+    "name": "SydneyKart Order Confirmation",
+    "line": 1,
+    "id": "sydneykart-order-confirmation",
+    "tags": [],
+    "uri": "OrderConfirmation.feature",
+    "elements": [
+      {
+        "id": "sydneykart-order-confirmation;view-order-confirmation-after-successful-purchase",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "View order confirmation after successful purchase",
+        "tags": [
+          {
+            "name": "@order",
+            "line": 11
+          },
+          {
+            "name": "@smoke",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 108000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 1200000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "I am logged in as a registered user",
+            "result": {
+              "status": "passed",
+              "duration": 1743000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I have added \"Wireless Headphones\" to my cart",
+            "result": {
+              "status": "passed",
+              "duration": 4347000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I have completed the checkout process",
+            "result": {
+              "status": "passed",
+              "duration": 5512000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "I should be redirected to the shipping details page",
+            "result": {
+              "status": "passed",
+              "duration": 111000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I enter my shipping details",
+            "result": {
+              "status": "failed",
+              "duration": 7200000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: expected 'https://portfoliosai.link/sydneykart/confirm_order' to include '/payment_method'\n    at ShippingPageActions.enterShippingData (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:676:18)\n    at Context.eval (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:877:23)\n    at Context.resolveAndRunStepDefinition (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:13542:29)\n    at Context.eval (https://portfoliosai.link/__cypress/tests?p=cypress\\integration\\OrderConfirmation.feature:12863:35)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

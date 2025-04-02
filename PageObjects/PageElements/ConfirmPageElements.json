@@ -1,0 +1,5 @@
+{
+    "proceed_to_payment_button": "#checkout_btn",
+    "proceed_to_payment_button_alt": "a.btn.btn-primary.w-100[href*='/payment_method']",
+    "proceed_to_payment_button_text": "a:contains('Proceed to Payment')"
+}

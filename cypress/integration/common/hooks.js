@@ -1,21 +1,33 @@
 const { Before, After } = require("cypress-cucumber-preprocessor/steps");
-const pageObjects = require("./GlobalPageObjects");
 
 // Define base URL
-const url = 'https://portfoliosai.link/sydneykart/';
+const url = Cypress.env('BASE_URL') || 'https://portfoliosai.link/sydneykart';
 
 // Background steps available for all .feature files
 const NavBarActions = require('../../../PageObjects/PageActions/NavBarActions');
 const SearchPageActions = require('../../../PageObjects/PageActions/SearchPageActions');
 const PaginationElementActions = require('../../../PageObjects/PageActions/PaginationElementActions');
 const LoginPageActions = require('../../../PageObjects/PageActions/LoginPageActions');
+const CartPageActions = require('../../../PageObjects/PageActions/CartPageActions');
+const ShippingPageActions = require("../../../PageObjects/PageActions/ShippingPageActions");
+const MyProfileActions = require("../../../PageObjects/PageActions/MyProfilePageActions");
+
 
 // Create instances immediately
-global.navBarAction = new NavBarActions();
+global.navBarActions = new NavBarActions();
 global.searchPageActions = new SearchPageActions();
 global.paginationElementActions = new PaginationElementActions();
 global.loginPageActions = new LoginPageActions();
+global.cartPageActions = new CartPageActions();
+global.shippingPageActions = new ShippingPageActions();
+global.myProfileActions = new MyProfileActions();
 
+// Common Methods for all .feature files
+
+Given ('I am logged in as a registered user', (keyword) => {
+  navBarActions.clickLogin()
+  loginPageActions.loginAsRegisteredUser();
+});
 
 Given('I have opened my web browser', () => {
   cy.log('Web browser is open by default in Cypress');
@@ -35,6 +47,7 @@ Given('I open Home Page', { timeout: 10000 }, () => {
     failOnStatusCode: false,
   });
 });
+
 
 // For one-time teardown
 after(() => {
@@ -91,13 +104,4 @@ Before({ tags: '@regression' }, () => {
   cy.log('HOOK: Disabled screenshots and videos for regression tests');
 });
 
-// Combining tags and order in the same object
-Before({ tags: '@smoke', order: 10 }, () => {
-  console.log('HOOK: Smoke test detected (Priority 10)');
-  cy.log('HOOK: Smoke test detected (Priority 10)');
-});
 
-After({ tags: '@regression', order: 5 }, () => {
-  console.log('HOOK: Regression test cleanup (Priority 5)');
-  cy.log('HOOK: Regression test cleanup (Priority 5)');
-});

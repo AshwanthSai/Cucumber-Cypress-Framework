@@ -1,0 +1,7 @@
+{
+    "increase_quantity_button": ".stockCounter > .btn-primary",
+    "decrease_quantity_button": ".btn-danger",
+    "add_to_cart_button": "#cart_btn",
+    "cart_button": "#cart_count",
+    "checkout_button": "#checkout_btn"
+}

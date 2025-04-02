@@ -8,7 +8,12 @@ Feature: SydneyKart Product Search
     And my internet connection is active
     And I open Home Page
 
-  
+  @search @smoke
+  Scenario: Empty search validation
+  When I enter "" in the search field
+  And I click the search button
+  Then I should not see any new products
+
   @search @regression
   Scenario Outline: Search for products with different keywords
     When I enter "<keyword>" in the search field

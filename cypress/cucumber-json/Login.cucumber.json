@@ -9,18 +9,18 @@
     "uri": "Login.feature",
     "elements": [
       {
-        "id": "sydneykart-authentication;successful-login",
+        "id": "sydneykart-authentication;login-with-different-credentials",
         "keyword": "Scenario",
-        "line": 14,
-        "name": "Successful login",
+        "line": 24,
+        "name": "Login with different credentials",
         "tags": [
           {
             "name": "@login",
-            "line": 13
+            "line": 12
           },
           {
             "name": "@smoke",
-            "line": 13
+            "line": 12
           }
         ],
         "type": "scenario",
@@ -32,106 +32,7 @@
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 65000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 9,
-            "name": "my internet connection is active",
-            "result": {
-              "status": "passed",
-              "duration": 3000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 10,
-            "name": "I open Home Page",
-            "result": {
-              "status": "passed",
-              "duration": 4240000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 15,
-            "name": "I click on the login button",
-            "result": {
-              "status": "passed",
-              "duration": 916000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 16,
-            "name": "I enter \"test@admin.com\" in the email field",
-            "result": {
-              "status": "passed",
-              "duration": 475000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 17,
-            "name": "I enter \"test@admin.com\" in the password field",
-            "result": {
-              "status": "passed",
-              "duration": 574000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 18,
-            "name": "I click the submit button",
-            "result": {
-              "status": "passed",
-              "duration": 132000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 19,
-            "name": "the system should \"Redirect to Home\"",
-            "result": {
-              "status": "passed",
-              "duration": 3277000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "sydneykart-authentication;failed-login-attempts",
-        "keyword": "Scenario",
-        "line": 33,
-        "name": "Failed login attempts",
-        "tags": [
-          {
-            "name": "@login",
-            "line": 22
-          },
-          {
-            "name": "@smoke",
-            "line": 22
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "I have opened my web browser",
-            "result": {
-              "status": "passed",
-              "duration": 203000000
+              "duration": 134000000
             }
           },
           {
@@ -151,84 +52,94 @@
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 2050000000
+              "duration": 799000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 24,
+            "line": 14,
             "name": "I click on the login button",
             "result": {
               "status": "passed",
-              "duration": 762000000
+              "duration": 430000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 25,
-            "name": "I enter \"test@example.com\" in the email field",
+            "line": 15,
+            "name": "I enter \"test@admin.com\" in the email field",
             "result": {
               "status": "passed",
-              "duration": 480000000
+              "duration": 559000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 26,
-            "name": "I enter \"password123\" in the password field",
+            "line": 16,
+            "name": "I enter \"test@admin.com\" in the password field",
             "result": {
               "status": "passed",
-              "duration": 421000000
+              "duration": 654000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 27,
+            "line": 17,
             "name": "I click the submit button",
             "result": {
               "status": "passed",
-              "duration": 127000000
+              "duration": 207000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 28,
-            "name": "I should see message \"Invalid email or password\"",
+            "line": 18,
+            "name": "I should see message \"\"",
             "result": {
               "status": "passed",
-              "duration": 698000000
+              "duration": 74000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 29,
-            "name": "the system should \"No Redirect\"",
+            "line": 19,
+            "name": "the system should \"Redirect to Home\"",
             "result": {
               "status": "passed",
-              "duration": 24000000
+              "duration": 1014000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the user status should be \"logged in\"",
+            "result": {
+              "status": "passed",
+              "duration": 59000000
             }
           }
         ]
       },
       {
-        "id": "sydneykart-authentication;failed-login-attempts",
+        "id": "sydneykart-authentication;login-with-different-credentials",
         "keyword": "Scenario",
-        "line": 34,
-        "name": "Failed login attempts",
+        "line": 25,
+        "name": "Login with different credentials",
         "tags": [
           {
             "name": "@login",
-            "line": 22
+            "line": 12
           },
           {
             "name": "@smoke",
-            "line": 22
+            "line": 12
           }
         ],
         "type": "scenario",
@@ -240,7 +151,7 @@
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 157000000
+              "duration": 467000000
             }
           },
           {
@@ -250,7 +161,7 @@
             "name": "my internet connection is active",
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 15000000
             }
           },
           {
@@ -260,84 +171,94 @@
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 1005000000
+              "duration": 1169000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 24,
+            "line": 14,
             "name": "I click on the login button",
             "result": {
               "status": "passed",
-              "duration": 769000000
+              "duration": 389000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 25,
-            "name": "I enter \"test@admin.com\" in the email field",
+            "line": 15,
+            "name": "I enter \"test@example.com\" in the email field",
             "result": {
               "status": "passed",
-              "duration": 436000000
+              "duration": 563000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 26,
-            "name": "I enter \"password12345\" in the password field",
+            "line": 16,
+            "name": "I enter \"password123\" in the password field",
             "result": {
               "status": "passed",
-              "duration": 414000000
+              "duration": 417000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 27,
+            "line": 17,
             "name": "I click the submit button",
             "result": {
               "status": "passed",
-              "duration": 116000000
+              "duration": 111000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 28,
+            "line": 18,
             "name": "I should see message \"Invalid email or password\"",
             "result": {
               "status": "passed",
-              "duration": 883000000
+              "duration": 707000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 29,
+            "line": 19,
             "name": "the system should \"No Redirect\"",
             "result": {
               "status": "passed",
-              "duration": 22000000
+              "duration": 28000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the user status should be \"not logged in\"",
+            "result": {
+              "status": "passed",
+              "duration": 31000000
             }
           }
         ]
       },
       {
-        "id": "sydneykart-authentication;failed-login-attempts",
+        "id": "sydneykart-authentication;login-with-different-credentials",
         "keyword": "Scenario",
-        "line": 35,
-        "name": "Failed login attempts",
+        "line": 26,
+        "name": "Login with different credentials",
         "tags": [
           {
             "name": "@login",
-            "line": 22
+            "line": 12
           },
           {
             "name": "@smoke",
-            "line": 22
+            "line": 12
           }
         ],
         "type": "scenario",
@@ -349,7 +270,126 @@
             "name": "I have opened my web browser",
             "result": {
               "status": "passed",
-              "duration": 162000000
+              "duration": 171000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 810000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I click on the login button",
+            "result": {
+              "status": "passed",
+              "duration": 338000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I enter \"test@admin.com\" in the email field",
+            "result": {
+              "status": "passed",
+              "duration": 422000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I enter \"password12345\" in the password field",
+            "result": {
+              "status": "passed",
+              "duration": 413000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click the submit button",
+            "result": {
+              "status": "passed",
+              "duration": 94000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "I should see message \"Invalid email or password\"",
+            "result": {
+              "status": "passed",
+              "duration": 831000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the system should \"No Redirect\"",
+            "result": {
+              "status": "passed",
+              "duration": 30000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the user status should be \"not logged in\"",
+            "result": {
+              "status": "passed",
+              "duration": 31000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-authentication;login-with-different-credentials",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Login with different credentials",
+        "tags": [
+          {
+            "name": "@login",
+            "line": 12
+          },
+          {
+            "name": "@smoke",
+            "line": 12
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 161000000
             }
           },
           {
@@ -369,67 +409,196 @@
             "name": "I open Home Page",
             "result": {
               "status": "passed",
-              "duration": 663000000
+              "duration": 475000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 24,
+            "line": 14,
             "name": "I click on the login button",
             "result": {
               "status": "passed",
-              "duration": 728000000
+              "duration": 366000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 25,
-            "name": "I enter \"test@admin.com\" in the email field",
+            "line": 15,
+            "name": "I enter \"\" in the email field",
             "result": {
               "status": "passed",
-              "duration": 464000000
+              "duration": 196000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 26,
-            "name": "I enter \"test@admin.com\" in the password field",
+            "line": 16,
+            "name": "I enter \"password123\" in the password field",
             "result": {
               "status": "passed",
-              "duration": 451000000
+              "duration": 380000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 27,
+            "line": 17,
             "name": "I click the submit button",
             "result": {
               "status": "passed",
-              "duration": 118000000
+              "duration": 92000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 28,
-            "name": "I should see message \"\"",
+            "line": 18,
+            "name": "I should see message \"Please enter email & password\"",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 521000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 29,
-            "name": "the system should \"Redirect to Home\"",
+            "line": 19,
+            "name": "the system should \"No Redirect\"",
             "result": {
               "status": "passed",
-              "duration": 2172000000
+              "duration": 32000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the user status should be \"not logged in\"",
+            "result": {
+              "status": "passed",
+              "duration": 27000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sydneykart-authentication;login-with-different-credentials",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Login with different credentials",
+        "tags": [
+          {
+            "name": "@login",
+            "line": 12
+          },
+          {
+            "name": "@smoke",
+            "line": 12
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 152000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 468000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I click on the login button",
+            "result": {
+              "status": "passed",
+              "duration": 326000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I enter \"test@example.com\" in the email field",
+            "result": {
+              "status": "passed",
+              "duration": 478000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I enter \"\" in the password field",
+            "result": {
+              "status": "passed",
+              "duration": 177000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click the submit button",
+            "result": {
+              "status": "passed",
+              "duration": 91000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "I should see message \"Please enter email & password\"",
+            "result": {
+              "status": "passed",
+              "duration": 497000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the system should \"No Redirect\"",
+            "result": {
+              "status": "passed",
+              "duration": 34000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the user status should be \"not logged in\"",
+            "result": {
+              "status": "passed",
+              "duration": 31000000
             }
           }
         ]

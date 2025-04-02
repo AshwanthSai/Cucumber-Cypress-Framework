@@ -9,29 +9,20 @@ Feature: SydneyKart Authentication
     And my internet connection is active
     And I open Home Page
 
-
   @login @smoke
-  Scenario: Successful login
-    When I click on the login button
-    And I enter "test@admin.com" in the email field
-    And I enter "test@admin.com" in the password field
-    And I click the submit button
-    Then the system should "Redirect to Home"
-    
-
-  @login @smoke
-  Scenario Outline: Failed login attempts
+  Scenario Outline: Login with different credentials
     When I click on the login button
     And I enter "<email>" in the email field
     And I enter "<password>" in the password field
     And I click the submit button
     Then I should see message "<message>"
     And the system should "<redirect_action>"
+    And the user status should be "<login_status>"
 
     Examples:
-      | email             | password         | message                             | redirect_action   |
-      | test@example.com  | password123      | Invalid email or password           |  No Redirect      | 
-      | test@admin.com    | password12345    | Invalid email or password           |  No Redirect      | 
-      | test@admin.com    | test@admin.com   |                                     |  Redirect to Home | 
-  
-
+      | email           | password        | message                            | redirect_action   | login_status |
+      | test@admin.com  | test@admin.com  |                                    | Redirect to Home  | logged in    |
+      | test@example.com| password123     | Invalid email or password          | No Redirect       | not logged in|
+      | test@admin.com  | password12345   | Invalid email or password          | No Redirect       | not logged in|
+      |                 | password123     | Please enter email & password      | No Redirect       | not logged in|
+      | test@example.com|                 | Please enter email & password      | No Redirect       | not logged in|

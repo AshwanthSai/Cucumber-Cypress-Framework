@@ -1,0 +1,7 @@
+{
+    "specs": [
+      "cypress/integration/**/*.feature"
+    ],
+    "workers": 4,
+    "reportsDir": "cypress/reports/parallel"
+  }

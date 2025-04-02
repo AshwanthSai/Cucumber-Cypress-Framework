@@ -8,12 +8,16 @@
     "headless": "npx cypress-tags run -e TAGS=\"@%npm_config_tags%\"",
     "headless:all": "npx cypress-tags run",
     "headed": "npx cypress-tags run --headed -e TAGS=\"@%npm_config_tags%\"",
-    "headed:all": "npx cypress-tags run --headed"
+    "headed:all": "npx cypress-tags run --headed",
+    "cypress:parallel": "cypress-parallel --specs=\"cypress/integration/**/*.feature\" --threads=4 --debug -m false"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cucumber/cucumber": "^11.2.0"
+    "@cucumber/cucumber": "^11.2.0",
+    "@faker-js/faker": "^9.6.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-parallel": "^0.15.0"
   },
   "dependencies": {
     "cypress": "^9.7.0",

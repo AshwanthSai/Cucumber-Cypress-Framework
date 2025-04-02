@@ -3,5 +3,6 @@
     "password_field" : "#password_field",
     "login_button" : "#login_button",
     "login_form" : "h2.mb-4",
-    "toast_message" : ".Toastify__toast-icon > svg > path"
+    "toast_message" : ".Toastify__toast",
+    "toast_error_message" : ".Toastify__toast--error"
 }

@@ -1,0 +1,123 @@
+[
+  {
+    "description": "  As a registered user\n  I want to manage my profile information and image\n  So that I can personalize my account",
+    "keyword": "Feature",
+    "name": "User Profile Management",
+    "line": 1,
+    "id": "user-profile-management",
+    "tags": [],
+    "uri": "UserProfileManagement.feature",
+    "elements": [
+      {
+        "id": "user-profile-management;user-successfully-updates-their-profile-name",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "User successfully updates their profile name",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have opened my web browser",
+            "result": {
+              "status": "passed",
+              "duration": 137000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "my internet connection is active",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I open Home Page",
+            "result": {
+              "status": "passed",
+              "duration": 3173000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am logged in as a registered user",
+            "result": {
+              "status": "passed",
+              "duration": 1614000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I navigate to my account profile page",
+            "result": {
+              "status": "passed",
+              "duration": 5181000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I click on the Update Profile button",
+            "result": {
+              "status": "passed",
+              "duration": 194000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I enter a new name \"John Doe\" in the name field",
+            "result": {
+              "status": "passed",
+              "duration": 437000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I click on the Update button",
+            "result": {
+              "status": "passed",
+              "duration": 161000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I should be navigated to Profile Page",
+            "result": {
+              "status": "passed",
+              "duration": 558000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I should see my name updated to \"John Doe\"",
+            "result": {
+              "status": "passed",
+              "duration": 117000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

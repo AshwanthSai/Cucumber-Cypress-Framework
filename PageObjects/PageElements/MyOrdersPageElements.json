@@ -1,0 +1,21 @@
+{
+    "// Main action buttons": "----------------------------------------------",
+    "first_row_view_button": "[data-test='table-body'] tr:nth-child(1) td:nth-child(5) a.btn-primary",
+    "first_row_print_button": "[data-test='table-body'] tr:nth-child(1) td:nth-child(5) a.btn-success",
+    
+    "// Alternative selectors": "----------------------------------------------",
+    "first_row_view_button_alt": "[data-test='datatable-table'] table tbody tr:first-child td:last-child a:first-child",
+    "first_row_print_button_alt": "[data-test='datatable-table'] table tbody tr:first-child td:last-child a:last-child",
+    
+    "// Icon selectors": "----------------------------------------------",
+    "first_row_eye_icon": "[data-test='table-body'] tr:nth-child(1) td:nth-child(5) a.btn-primary i.fa-eye",
+    "first_row_print_icon": "[data-test='table-body'] tr:nth-child(1) td:nth-child(5) a.btn-success i.fa-print",
+    
+    "// Row selectors": "----------------------------------------------",
+    "first_row": "[data-test='table-body'] tr:nth-child(1)",
+    "first_row_id": "[data-test='table-body'] tr:nth-child(1) td:nth-child(1)",
+    
+    "// Templates for dynamic selection": "----------------------------------------------",
+    "view_button_template": "[data-test='table-body'] tr:nth-child({row}) td:nth-child(5) a.btn-primary",
+    "print_button_template": "[data-test='table-body'] tr:nth-child({row}) td:nth-child(5) a.btn-success"
+}

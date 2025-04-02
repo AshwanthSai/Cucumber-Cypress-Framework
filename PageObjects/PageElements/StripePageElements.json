@@ -1,0 +1,43 @@
+{
+    "// Container elements": "----------------------------------------------",
+    "payment_form": ".PaymentMethodForm",
+    "email_display": ".ReadOnlyFormField-title",
+    
+    "// Card information section": "----------------------------------------------",
+    "card_information_label": "label[for='cardForm-fieldset'] span",
+    "card_number_field": "#cardNumber",
+    "card_expiry_field": "#cardExpiry",
+    "card_cvc_field": "#cardCvc",
+    "cvc_icon": "svg[aria-label='CVC']",
+    
+    "// Card brand icons": "----------------------------------------------",
+    "visa_icon": "img[alt='Visa']",
+    "mastercard_icon": "img[alt='MasterCard']",
+    "amex_icon": "img[alt='American Express']",
+    "jcb_icon": "img[alt='JCB']",
+    
+    "// Cardholder details": "----------------------------------------------",
+    "cardholder_name_label": "label[for='billingName'] span",
+    "cardholder_name_field": "#billingName",
+    "country_label": "label[for='country'] span",
+    "country_dropdown": "#billingCountry",
+    "country_select_arrow": ".Select-arrow",
+    
+    "// Save payment info": "----------------------------------------------",
+    "save_payment_checkbox": "#enableStripePass",
+    "save_payment_label": "label[for='enableStripePass'] .SignUpForm-labelHeader",
+    
+    "// Pay button": "----------------------------------------------",
+    "pay_button": ".SubmitButton[data-testid='hosted-payment-submit-button']",
+    "pay_button_text": ".SubmitButton-Text--current",
+    "processing_text": ".SubmitButton-Text--pre",
+    "lock_icon": "[data-testid='submit-button-lock-icon']",
+    
+    "// Error messages": "----------------------------------------------",
+    "card_number_error": "#cardNumber:invalid",
+    "expiry_error": "#cardExpiry:invalid",
+    "cvc_error": "#cardCvc:invalid",
+    "name_error": "#billingName:invalid",
+    "field_error_container": ".FieldError-container",
+    "field_error_text": ".FieldError.Text"
+}

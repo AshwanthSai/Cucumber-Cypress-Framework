@@ -1,0 +1,22 @@
+{
+    "// Form container": "----------------------------------------------",
+    "payment_form": "form.shadow.rounded.bg-body",
+    "payment_heading": "h2.mb-4",
+    
+    "// Payment options": "----------------------------------------------",
+    "cod_radio_button": "#codradio",
+    "card_radio_button": "#cardradio",
+    
+    "// Payment labels": "----------------------------------------------",
+    "cod_label": "label[for='codradio']",
+    "card_label": "label[for='cardradio']",
+    
+    "// Text-based selectors (alternative)": "----------------------------------------------",
+    "cod_option_text": "label:contains('Cash on Delivery')",
+    "card_option_text": "label:contains('Card - VISA, MasterCard')",
+    
+   
+    "continue_button": "#shipping_btn",
+    "continue_button_alt": "button.btn.py-2.w-100",
+    "continue_button_text": "button:contains('CONTINUE')"
+}
