@@ -29,7 +29,7 @@ let browserVersion = "latest";
 
 // Try to read browser info from cypress.json
 try {
-  const cypressConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cypress.json'), 'utf8'));
+  const cypressConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cypress.config.js'), 'utf8'));
   if (cypressConfig.browser) {
     browserName = cypressConfig.browser.name || browserName;
     browserVersion = cypressConfig.browser.version || browserVersion;

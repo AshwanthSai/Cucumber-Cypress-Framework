@@ -2,28 +2,20 @@
     "shipping_form": "form.shadow.rounded.bg-body",
     "shipping_heading": "form.shadow.rounded.bg-body h2",
     "moveToCheckout":"#checkout_btn",
-
-    "// Input fields": "----------------------------------------------",
     "shipping_address_field": "#address_field",
     "shipping_city_field": "#city_field",
     "shipping_phone_field": "#phone_field",
     "shipping_postal_code_field": "#postal_code_field",
     "shipping_country_field": "#country_field",
-    
-    "// Field labels": "----------------------------------------------",
     "address_label": "label[for='address_field']",
     "city_label": "label[for='city_field']",
     "phone_label": "label[for='phone_field']",
     "postal_code_label": "label[for='postal_code_field']",
     "country_label": "label[for='country_field']",
-    
-    "// Form validation": "----------------------------------------------",
     "address_error": "#address_field:invalid",
     "city_error": "#city_field:invalid",
     "phone_error": "#phone_field:invalid",
     "postal_code_error": "#postal_code_field:invalid",
     "country_error": "#country_field:invalid",
-    
-    "// Buttons": "----------------------------------------------",
     "shipping_continue_button": "#shipping_btn"
 }

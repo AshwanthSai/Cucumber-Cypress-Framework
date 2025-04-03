@@ -136,7 +136,7 @@ class ShippingPageActions {
     selectCardPayment() {
         cy.log('Selecting card payment method');
         try {
-            // First check if we're on the payment method page
+            // Check if we're on the payment method page
             cy.url().should('include', '/payment_method');
             
             cy.get(shippingPageElements.card_payment_radio)  
@@ -153,7 +153,7 @@ class ShippingPageActions {
     selectCashPayment() {
         cy.log('Selecting card payment method');
         try {
-            // First check if we're on the payment method page
+            //  Check if we're on the payment method page
             cy.url().should('include', '/payment_method');
             
             cy.get(shippingPageElements.cash_payment_radio)  

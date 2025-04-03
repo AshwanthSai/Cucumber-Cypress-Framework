@@ -1,3 +1,7 @@
 {
-    
+    "orders_table": "[data-test='datatable-table']",
+    "order_details_first_order": ":nth-child(1) > :nth-child(5) > .btn-primary",
+    "order_details_last_order": "table.table-bordered tbody tr:last-child td:last-child .btn-primary",
+    "next_button": ":nth-child(5) > [data-test='page-link'] > span",
+    "pagination_component": "[data-test='pagination']"
 }

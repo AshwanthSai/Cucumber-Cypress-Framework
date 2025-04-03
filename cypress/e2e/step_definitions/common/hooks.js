@@ -12,7 +12,8 @@ import CartPageActions from '../../../support/PageObjects/PageActions/CartPageAc
 import ShippingPageActions from '../../../support/PageObjects/PageActions/ShippingPageActions';
 import MyProfileActions from '../../../support/PageObjects/PageActions/MyProfilePageActions';
 import PaymentPageActions from '../../../support/PageObjects/PageActions/PaymentPageActions';
-import OrderDetailsPageActions from '../../../support/PageObjects/PageActions/OrderDetailsPageActions';
+import OrdersPageActions from '../../../support/PageObjects/PageActions/OrdersPageActions';
+import InvoicePageActions from '../../../support/PageObjects/PageActions/InvoicePageActions';
 
 // Initialize page objects for this context
 // Use Cypress.env to share between tests instead of global
@@ -26,7 +27,8 @@ Before(function() {
   Cypress.env('shippingPageActions', new ShippingPageActions());
   Cypress.env('myProfileActions', new MyProfileActions());
   Cypress.env('paymentPageActions', new PaymentPageActions());
-  Cypress.env('orderDetailsPageActions', new OrderDetailsPageActions());
+  Cypress.env('ordersPageActions', new OrdersPageActions());
+  Cypress.env('invoicePageActions', new InvoicePageActions());
 });
 
 

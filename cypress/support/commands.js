@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+beforeEach(() => {
+    cy.task('deleteDownloads');
+  });
+  
+  // Simple helper to check if a file exists in downloads
+  Cypress.Commands.add('fileExists', (filename) => {
+    cy.task('listFiles').then(files => {
+      if (filename) {
+        return cy.wrap(files.includes(filename));
+      } else {
+        // Just check if any file exists
+        return cy.wrap(files.length > 0);
+      }
+    });
+  });

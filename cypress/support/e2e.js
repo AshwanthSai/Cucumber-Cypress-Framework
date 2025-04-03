@@ -15,3 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-downloadfile/lib/downloadFileCommand'
+
+// Aux File Download
+require('cy-verify-downloads').addCustomCommand();
+// const { polyfillNode } = require('esbuild-plugin-polyfill-node');

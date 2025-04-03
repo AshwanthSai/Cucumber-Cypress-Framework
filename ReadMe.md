@@ -30,7 +30,6 @@ To showcase my expertise in Behavior-Driven Development (BDD) and testing, I dev
 - **Cypress Form Submissions**: Tests form inputs and submission behaviors.
 - **Cypress Data Display**: Verifies dynamic content loading, such as:
   - User profiles
-  - Product listings
   - Pagination functionality
 - **Cypress Stripe Payments**: Ensures proper integration and functionality of Stripe payment processing.
 - **Cypress File Uploads**: Validates correct operation of file upload features.

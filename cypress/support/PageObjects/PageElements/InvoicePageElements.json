@@ -1,0 +1,4 @@
+{
+    "order_invoice":"#order_invoice",
+    "download_invoice_button": ".row > .btn"
+}

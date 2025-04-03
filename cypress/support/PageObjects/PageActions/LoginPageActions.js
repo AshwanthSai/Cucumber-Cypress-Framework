@@ -1,5 +1,3 @@
-const navBarElements = require("../PageElements/NavBarElements.json")
-const homePageElements = require("../PageElements/HomePageElements.json")
 const loginPageElements = require("../PageElements/LoginPageElements.json")
 
 class LoginPageActions {
@@ -133,7 +131,7 @@ class LoginPageActions {
             this.enterEmail(defaultEmail)
                 .enterPassword(defaultPassword)
                 .clickLogin();
-            // Login involves lot of Intenal State Mutations. 
+            // Login involves, a lot of Intenal State Mutations. 
             // We need to slowdown, else tests will Break.
             cy.wait(4000)
             cy.log('Registered user login attempt completed');

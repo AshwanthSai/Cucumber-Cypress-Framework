@@ -1,5 +1,4 @@
 const cartPageElements = require("../PageElements/CartPageElements.json")
-
 const HEADPHONE_PRODUCT_LINK = Cypress.env('HEADPHONE_PRODUCT_LINK') || 'https://portfoliosai.link/sydneykart/product/wireless-headphones';
 
 

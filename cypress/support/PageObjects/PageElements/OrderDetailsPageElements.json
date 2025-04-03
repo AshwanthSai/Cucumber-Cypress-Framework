@@ -1,26 +1,5 @@
 {
-    "// Invoice button selectors": "----------------------------------------------",
-    "invoice_button": "a.btn.btn-success[href*='/invoice/order/']",
-    "invoice_button_with_icon": "a.btn.btn-success i.fa-print",
-    "invoice_button_by_text": "a.btn:contains('Invoice')",
-    
-    "// Order ID specific invoice button": "----------------------------------------------",
-    "invoice_button_specific_order": "a.btn.btn-success[href='/sydneykart/invoice/order/67d4752c25a0b9771ac5edd8']",
-    
-    "// Dynamic selectors": "----------------------------------------------",
-    "invoice_button_template": "a.btn.btn-success[href='/sydneykart/invoice/order/{orderId}']",
-    
-    "// Button components": "----------------------------------------------",
-    "print_icon": "i.fa.fa-print",
-    "invoice_text": "a.btn.btn-success:contains('Invoice')",
-    
-    "// Download Invoice Button selectors": "----------------------------------------------",
-    "download_invoice_button": "button.btn.btn-success.col-md-5",
-    "download_invoice_button_by_text": "button.btn.btn-success:contains('Download Invoice')",
-    "download_invoice_button_by_icon": "button.btn.btn-success i.fa-print",
-    "download_invoice_button_combined": "button.btn.btn-success.col-md-5:contains('Download Invoice')",
-    
-    "// Preview/Print selectors": "----------------------------------------------",
-    "preview_invoice_button": "button.btn.btn-primary:contains('Preview Invoice')",
-    "print_invoice_button": "button.btn.btn-primary:contains('Print Invoice')"
+    "order_details_container": ".order-details",
+    "product_name": ".cart-item .row .col-lg-5 a",
+    "invoice_button": ".d-flex > .btn"
 }

@@ -26,19 +26,10 @@ When('I click continue to payment', function() {
   getPageObject('shippingPageActions').clickContinuetoPayment();
 });
 
+/* ===== Payment Selection Steps ===== */
 Then('I should be redirected to the payment selection page', function() {
   cy.log('Verifying redirect to payment selection page');
   getPageObject('shippingPageActions').verifyPaymentPage();
-});
-
-When('I click proceed with payment', function() {
-  cy.log('Clicking proceed with payment');
-  getPageObject('shippingPageActions').verifyPaymentPage();
-});
-
-Then('I should be redirected to the Stripe payment page', function() {
-  cy.log('Verifying redirect to Stripe payment page');
-  getPageObject('shippingPageActions').confirmStripeRedirect();
 });
 
 When('I select Cash Payment as payment method', function() {
@@ -46,12 +37,114 @@ When('I select Cash Payment as payment method', function() {
   getPageObject('paymentPageActions').selectCashOnDelivery();
 });
 
-Then('I should be redirected to my orders page', function() {
-  cy.log('Verifying redirect to order details page');
-  getPageObject('orderDetailsPageActions').verifyRedirectToOrderDetailsPage();
-});
-
 Then('I click continue to confirm payment', function() {
   cy.log('Clicking continue to confirm payment');
   getPageObject('paymentPageActions').confirmPaymentMethod();
+});
+
+Then('I should be redirected to the Stripe payment page', function() {
+  cy.log('Verifying redirect to Stripe payment page');
+  getPageObject('paymentPageActions').confirmStripeRedirect();
+});
+
+When('I click proceed with payment', function() {
+  cy.log('Clicking proceed with payment');
+  getPageObject('shippingPageActions').verifyPaymentPage();
+});
+
+/* ===== Order Listing Steps ===== */
+Then('I should be redirected to my orders page', function() {
+  cy.log('Verifying redirect to orders page');
+  getPageObject('ordersPageActions').verifyRedirectToOrderDetailsPage();
+});
+
+When('I navigate to my most recent order', function() {
+  cy.log('Navigating to my most recent order');
+  getPageObject('ordersPageActions').navigateToLastPage();
+});
+
+When('I click on it', function() {
+  cy.log('Clicking on latest order');
+  getPageObject('ordersPageActions').clickLastOrder();
+});
+
+When('I click on the first order from the list', function() {
+  cy.log('Clicking on first order in the list');
+  getPageObject('ordersPageActions').clickFirstOrder();
+});
+
+/* ===== Order Detail Steps ===== */
+Then('I should be redirected to the order detail page', function() {
+  cy.log('Verifying headphone product appears in order');
+  
+  // Get the headphone product name from environment variables
+  const headphoneName = Cypress.env('HEADPHONE_NAME');
+  cy.log(`Looking for product: "${headphoneName}"`);
+  
+  // Verify the product appears in the order
+  getPageObject('ordersPageActions').verifyProduct(headphoneName);
+});
+
+/* ===== Invoice Steps ===== */
+When('I click Print Invoice', function() {
+  cy.log('Clicking on Print Invoice button');
+  getPageObject('ordersPageActions').clickInvoiceButton();
+});
+
+Then('I should be redirected to the order invoice page', function() {
+  cy.log('Verifying invoice page is loaded');
+  getPageObject('invoicePageActions').verifyInvoicePage();
+});
+
+When('I click "Download Invoice"', function() {
+  cy.log('Clicking on Download Invoice button');
+  getPageObject('invoicePageActions').downloadInvoicePDF();
+});
+
+/* ===== Download Verification Steps ===== */
+Then('the invoice should be downloaded to my computer', function() {
+  cy.log('This step combined with "downloaded file should match the order number"');
+});
+
+Then('the downloaded file should match the order number', function() {
+  cy.log('Verifying downloaded file matches order number');
+  
+  // Wait for download to complete
+  cy.wait(2000);
+  
+  // Debug: List all files in downloads folder
+  cy.task('listFiles').then(files => {
+    cy.log(`Files in downloads folder: ${files.join(', ')}`);
+  });
+  
+  // Get the stored order ID
+  const orderId = Cypress.env('currentOrderId');
+  if (!orderId) {
+    throw new Error('Order ID not found in Cypress environment');
+  }
+  
+  // Verify the download
+  getPageObject('invoicePageActions').verifyInvoice();
+});
+
+
+// Add these to your OrderConfirmation.js file
+When('I select Card Payment as payment method', function() {
+  cy.log('Selecting Card Payment method');
+  getPageObject('paymentPageActions').selectCardPayment();
+});
+
+
+Then('I should see the Stripe payment form', function() {
+  cy.log('Verifying Stripe payment form is visible');
+  getPageObject('paymentPageActions').confirmStripeRedirect()
+});
+
+
+Then('I should see the invoice PDF downloaded', function() {
+  // Simple check that any PDF file exists
+  cy.task('listFiles').then(files => {
+    const pdfExists = files.some(file => file.endsWith('.pdf'));
+    expect(pdfExists).to.be.true;
+  });
 });

@@ -11,7 +11,7 @@ class MyProfilePageActions {
             // Verify the name has been updated in the UI
             cy.get(myProfilePageElements.profile_name)
                 .should('be.visible')
-                .and('contain', name);  // Fixed: using parameter 'name' instead of undefined 'newName'
+                .and('contain', name);  
                 
             cy.log('Profile name update verified successfully');
         } catch (e) {
@@ -32,7 +32,7 @@ class MyProfilePageActions {
                 .should('be.visible')
                 .should('have.attr', 'src')
                 .and('include', 'cloudinary')
-                .and('include', 'SydneyKart/avatar')  // More specific path check
+                .and('include', 'SydneyKart/avatar')  
                 .and('not.include', 'default');
                     
             // Check image has loaded properly

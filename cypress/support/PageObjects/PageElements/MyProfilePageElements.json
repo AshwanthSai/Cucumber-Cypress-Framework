@@ -13,16 +13,12 @@
     "user_info_container": ".row.justify-content-around.user-info",
     "profile_name": ".col-md-5 h4:contains('Full Name') + p",
     "profile_avatar": "img.rounded-circle.img-fluid",
-
-    "// Navigation tabs": "----------------------------------------------",
     "profile_tab": "a.nav-link:contains('Profile')",
     "profile_tab_alt": "a.nav-link[href*='/profile']",
     "update_profile_tab_alt": "a.nav-link[href*='/update-profile']",
     "upload_avatar_tab_alt": "a.nav-link[href*='/upload-avatar']",
     "update_password_tab": "a.nav-link:contains('Update Password')",
     "update_password_tab_alt": "a.nav-link[href*='/update-password']",
-    
-    "// Profile form fields": "----------------------------------------------",
     "email_field": "#email",
     "current_password_field": "#currentPassword",
     "new_password_field": "#newPassword",

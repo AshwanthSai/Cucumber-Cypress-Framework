@@ -57,7 +57,6 @@ class NavBarActions {
     clickLogin(){
         cy.log('Clicking login button');
         try {
-            // For Multiple Logins, sometime the loading bar covers the button
             cy.get(navBarElements.login_button).click({force: true});
             cy.url().should('include', '/login');
             cy.log('Login button clicked successfully');
@@ -86,13 +85,11 @@ class NavBarActions {
 
     verifyLoginStatus(expectedStatus) {
         cy.get('body').then($body => {
-            // Check only two elements - simplifying the logic
             const profileActionButtonsExist = $body.find(navBarElements.profile_action_buttons).length > 0;
             const loginButtonExists = $body.find(navBarElements.login_button).length > 0;
             
             let isLoggedIn;
             
-            // Simplified logic with just two elements
             if (profileActionButtonsExist && !loginButtonExists) {
                 // Profile actions visible and login button not visible = logged in
                 isLoggedIn = true;
@@ -100,13 +97,11 @@ class NavBarActions {
                 // No profile actions and login button visible = not logged in
                 isLoggedIn = false;
             } else {
-                // Edge case (shouldn't happen in normal application flow)
                 // Default to checking just the login button as the decisive factor
                 isLoggedIn = !loginButtonExists;
                 cy.log('Warning: Inconsistent login state indicators detected');
             }
             
-            // Compare against expected status
             if (expectedStatus === "logged in") {
                 expect(isLoggedIn).to.be.true;
                 cy.log("Verified user is logged in");

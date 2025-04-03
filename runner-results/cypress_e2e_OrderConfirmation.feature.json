@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 2,
+  "passes": 1,
+  "pending": 0,
+  "failures": 1,
+  "start": "2025-04-03T21:16:26.502Z",
+  "duration": 73876,
+  "file": "cypress\\e2e\\OrderConfirmation.feature"
+}
