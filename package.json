@@ -1,36 +1,35 @@
 {
-  "name": "cucumber-selenium-refresher",
+  "name": "cypress-cucumber",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "report": "node ./cypress/generateReport.js",
-    "headless": "npx cypress-tags run -e TAGS=\"@%npm_config_tags%\"",
-    "headless:all": "npx cypress-tags run",
-    "headed": "npx cypress-tags run --headed -e TAGS=\"@%npm_config_tags%\"",
-    "headed:all": "npx cypress-tags run --headed",
-    "cypress:parallel": "cypress-parallel --specs=\"cypress/integration/**/*.feature\" --threads=4 --debug -m false"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "report": "node ./cypress/reports/generateReport.js",
+    "headless": "cypress run --headless",
+    "start": "cypress run ",
+    "serve:report": "live-server --port=8080 --open=./cypress/reports/dashboard/index.html",
+    "cy:parallel": "cypress-parallel -s start -t 2 -d ./cypress/e2e/ -a  m false "
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@cucumber/cucumber": "^11.2.0",
-    "@faker-js/faker": "^9.6.0",
-    "cypress-file-upload": "^5.0.8",
-    "cypress-parallel": "^0.15.0"
-  },
   "dependencies": {
-    "cypress": "^9.7.0",
-    "cypress-cucumber-preprocessor": "^4.3.1",
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "@faker-js/faker": "^9.6.0",
+    "cypress": "^14.2.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-parallel": "^0.15.0",
     "multiple-cucumber-html-reporter": "^3.9.2"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
-    "cucumberJson": {
-      "generate": true,
-      "outputFolder": "cypress/cucumber-json",
-      "filePrefix": "",
-      "fileSuffix": ".cucumber"
-    }
+    "json": {
+      "enabled": true,
+      "output": "./cypress/reports/results.json"
+    },
+    "stepDefinitions": [
+      "cypress/e2e/step_definitions/**/*.js",
+      "cypress/e2e/step_definitions/common/*.js"
+    ]
   }
 }

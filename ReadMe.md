@@ -18,8 +18,7 @@ To showcase my expertise in Behavior-Driven Development (BDD) and testing, I dev
 - **Encapsulation and Reusable Components**: Applies Object-Oriented Programming principles to create reusable test components.
 - **Global Variables**: Ensures consistent data management across tests.
 - **Page Elements Segregation**: Organizes locators and actions for better maintainability.
-
-- **Static Fixtures & Dynamic Fixtures **
+- **Static Fixtures & Dynamic Fixtures** - Image Uploads, Dynamic Form Data Generation.
 - **Hook Priority Execution**: Defines the execution order of hooks to maintain test integrity.
 - **Test Dependency Management**: Uses pre-condition and post-condition hooks to manage test dependencies effectively.
 
@@ -66,7 +65,6 @@ While the test suite is not exhaustive, it includes common **Gherkin** and **BDD
 - [📜 License](#license)
 
 
-
 ## 🛠️ Setup Project
 
 To get this project up and running in your development environment, follow these step-by-step instructions.
@@ -108,33 +106,35 @@ To run Cypress in headless mode, use the following command:
 
 ```sh
 npm run headless --tags="not @login and @regression or @smoke"
-
 ```
 
-*   This command executes tests without a graphical interface.  The `--tags=smoke` option will only run tests tagged with `@smoke`.  You can omit the `--tags=smoke` to run all tests, or use different tags.  See the "Test Tagging" section above for more information.
+To run tests in headless mode with parallel execution:
 
-   Example: to run all tests in headless mode
-
-   ```sh
-   npm run headless:all
-   ```
+```sh
+npm run headless:parallel
+```
 
 #### Run Headed Mode
 
 To run Cypress in headed mode, use the following command:
 
 ```sh
-npm run headed --tags="not @login and @regression or @smoke"
-
+npm run start --tags="not @login and @regression or @smoke"
 ```
 
-*   This command executes tests with a graphical interface, allowing you to see the tests running in real-time. The `--tags=smoke` option will only run tests tagged with `@smoke`.  You can omit the `--tags=smoke` to run all tests, or use different tags.  See the "Test Tagging" section above for more information.
+To run tests in headed mode with parallel execution:
 
-Example: to run all tests in headed mode
+```sh
+npm run start:parallel
+```
 
-   ```sh
-   npm run headed:all
-   ```
+#### Run Tests with Cypress-Parallel
+
+For advanced parallel execution using `cypress-parallel`, use:
+
+```sh
+npm run cy:parallel
+```
 
 ### Viewing the Test Report
 

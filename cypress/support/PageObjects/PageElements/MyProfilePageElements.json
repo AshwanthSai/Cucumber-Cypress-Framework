@@ -1,0 +1,31 @@
+{
+    "upload_avatar_tab_exact": "[href='/sydneykart/me/upload_avatar']",
+    "avatar_upload_field": ".shadow > .mb-4",
+    "upload_avatar_button" : "#register_button",
+    "update_name_button": "button.update-btn[type='submit']",
+    "insert_image_button" :  "input#customFile[type='file']",
+    "toast_message" : ".Toastify__toast-icon > svg > path",
+    "name_field": "#name_field",
+    "update_profile_button": "button.update-btn[type='submit']",
+    "upload_avatar_tab": "a.nav-link:contains('Upload Avatar')",
+    "update_profile_tab": "[href='/sydneykart/me/update_profile']",
+    "profile_heading": "h2.mt-5.ml-5",
+    "user_info_container": ".row.justify-content-around.user-info",
+    "profile_name": ".col-md-5 h4:contains('Full Name') + p",
+    "profile_avatar": "img.rounded-circle.img-fluid",
+
+    "// Navigation tabs": "----------------------------------------------",
+    "profile_tab": "a.nav-link:contains('Profile')",
+    "profile_tab_alt": "a.nav-link[href*='/profile']",
+    "update_profile_tab_alt": "a.nav-link[href*='/update-profile']",
+    "upload_avatar_tab_alt": "a.nav-link[href*='/upload-avatar']",
+    "update_password_tab": "a.nav-link:contains('Update Password')",
+    "update_password_tab_alt": "a.nav-link[href*='/update-password']",
+    
+    "// Profile form fields": "----------------------------------------------",
+    "email_field": "#email",
+    "current_password_field": "#currentPassword",
+    "new_password_field": "#newPassword",
+    "confirm_password_field": "#confirmPassword",
+    "avatar_preview": ".avatar-preview img"
+}
