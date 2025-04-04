@@ -61,7 +61,7 @@ class InvoicePageActions {
             
             const hasPdf = files.some(file => file.endsWith('.pdf'));
             if (hasPdf) {
-                cy.log('✓ PDF file found in downloads folder');
+                cy.log('PDF file found in downloads folder');
             } else {
                 throw new Error('No PDF file found in downloads folder');
             }

@@ -1,5 +1,6 @@
 const navBarElements = require("../PageElements/NavBarElements.json")
 const homePageElements = require("../PageElements/HomePageElements.json")
+const filteredProductsElements = require("../PageElements/FilteredProductsPageElements.json")
 
 class NavBarActions {
     verifyLogo() {
@@ -70,11 +71,28 @@ class NavBarActions {
     search(searchTerm){
         cy.log(`Performing search: "${searchTerm || 'empty search'}"`);
         try {
+            // Intercept the search API call
+            cy.intercept('GET', '**/api/v1/products**').as('searchResults');
+
             if(searchTerm == undefined ||  searchTerm == "") {
                 cy.get(navBarElements.search_button).click();
                 cy.log('Empty search performed');
+                // Wait for the search results API response
+                cy.wait('@searchResults', { timeout: 15000 });
+                /* 
+                    Within the design of the application
+                    There is no loading screen or peculiar marking to 
+                    idenfity change in product list.
+                    This is a design problem, so using an explicit wait,
+                    This is considered bad practise
+                */
+                cy.wait(2000)
+                cy.get(filteredProductsElements.filter_options, { timeout: 10000 })
+                .should('exist')
+                .and('be.visible');
+                cy.log('Search results loaded successfully');
             } else {
-                cy.get(navBarElements.search_bar).type(searchTerm);
+                cy.get(navBarElements.search_bar).clear().type(searchTerm);
                 cy.log(`Search term "${searchTerm}" entered successfully`);
             }
         } catch (e) {

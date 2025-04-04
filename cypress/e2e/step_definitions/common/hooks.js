@@ -1,7 +1,7 @@
 import { Before, After, Given } from "@badeball/cypress-cucumber-preprocessor";
 
 // Define base URL
-const url = Cypress.env('BASE_URL') || 'https://portfoliosai.link/sydneykart';
+// const url = Cypress.env('BASE_URL') || 'https://portfoliosai.link/sydneykart';
 
 // Import page objects with ES module syntax
 import NavBarActions from '../../../support/PageObjects/PageActions/NavBarActions';
@@ -14,6 +14,7 @@ import MyProfileActions from '../../../support/PageObjects/PageActions/MyProfile
 import PaymentPageActions from '../../../support/PageObjects/PageActions/PaymentPageActions';
 import OrdersPageActions from '../../../support/PageObjects/PageActions/OrdersPageActions';
 import InvoicePageActions from '../../../support/PageObjects/PageActions/InvoicePageActions';
+import FilteredProductsPageActions from '../../../support/PageObjects/PageActions/FilteredProductsPageActions';
 
 // Initialize page objects for this context
 // Use Cypress.env to share between tests instead of global
@@ -29,6 +30,7 @@ Before(function() {
   Cypress.env('paymentPageActions', new PaymentPageActions());
   Cypress.env('ordersPageActions', new OrdersPageActions());
   Cypress.env('invoicePageActions', new InvoicePageActions());
+  Cypress.env('filteredProductsPageActions', new FilteredProductsPageActions());
 });
 
 
@@ -83,28 +85,3 @@ Before({ tags: "@mobile or @tablet" }, function() {
   cy.viewport('iphone-x');
 });
 
-// Using pickle data (enhanced for Cypress 14)
-Before(function ({ pickle, gherkinDocument, testCaseStartedId }) {
-  const scenarioName = pickle.name;
-  cy.log(`Running scenario: ${scenarioName}`);
-  
-  // Log tags for better debugging
-  if (pickle.tags && pickle.tags.length > 0) {
-    const tags = pickle.tags.map(tag => tag.name).join(', ');
-    cy.log(`Scenario tags: ${tags}`);
-  }
-  
-  // Dynamically set up based on scenario content
-  if (scenarioName.toLowerCase().includes("payment")) {
-    cy.log("Payment-related test detected - setting up payment interceptors");
-    cy.intercept('POST', '**/api/payments*').as('paymentRequest');
-  }
-  
-  // You can also check specific steps within the scenario
-  pickle.steps.forEach(step => {
-    if (step.text.includes("cart")) {
-      cy.log("Cart-related step detected");
-      cy.intercept('POST', '**/api/cart*').as('cartRequest');
-    }
-  });
-});

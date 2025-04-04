@@ -1,3 +1,4 @@
+@profile @user-management
 Feature: User Profile Management
   As a registered user
   I want to manage my profile information and image
@@ -12,6 +13,7 @@ Feature: User Profile Management
 
 
   #Profile Image Upload Scenarios
+  @avatar @upload @smoke @regression
   Scenario: User successfully uploads a valid profile image
     When I select the Upload Avatar option
     And I upload a valid image file profile.jpg
@@ -21,6 +23,7 @@ Feature: User Profile Management
 
 
   #Profile Name Update Scenarios
+  @profile-name @update @smoke @regression
   Scenario: User successfully updates their profile name
     When I click on the Update Profile button
     And I enter a new name "John Doe" in the name field

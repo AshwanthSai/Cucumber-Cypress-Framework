@@ -45,9 +45,19 @@ module.exports = defineConfig({
     "chromeWebSecurity": false,
     "viewportWidth": 1280,
     "viewportHeight": 720,
-    "defaultCommandTimeout": 10000,
+    "defaultCommandTimeout": 10000, // Global Time Out Period
     "download": {
       "directory": "./cypress/downloads"
-    }
+    },
+    "video": false,
+    "screenshotOnRunFailure": true,
+    "pageLoadTimeout": 30000,
+    "env": {
+        "BASE_URL": "https://portfoliosai.link/sydneykart/",
+        "DEFAULT_USER_EMAIL": "test@admin.com",
+        "DEFAULT_USER_PASSWORD": "test@admin.com",
+        "HEADPHONE_PRODUCT_LINK": "https://portfoliosai.link/sydneykart/products/67c0abf0edeeb56a059d6f89",
+        "HEADPHONE_NAME": "Bose QuietComfort 35 II Wireless Bluetooth Headphones",
+    },
   },
 });

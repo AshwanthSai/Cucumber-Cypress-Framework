@@ -1,4 +1,5 @@
 {
+    "filter_options": "div.border.filter",
     "min_price_input": "input[name='min'][placeholder='Min ($)']",
     "max_price_input": "input[name='max'][placeholder='Max ($)']",
     "electronics_category_checkbox": "input[type='checkbox'][name='category'][value='Electronics']",
@@ -16,6 +17,8 @@
     "three_star_rating_checkbox": "input[type='checkbox'][name='ratings'][value='3'], #check3", 
     "two_star_rating_checkbox": "input[type='checkbox'][name='ratings'][value='2'], #check2",
     "one_star_rating_checkbox": "input[type='checkbox'][name='ratings'][value='1'], #check1",
+    "products_title" : "#products_heading",
+    
     "product_grid": ".product-grid",
     "product_card": ".product-grid .card",
     "product_image": ".card-img-top",
