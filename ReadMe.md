@@ -1,4 +1,5 @@
 # Cucumber-Cypress Test Framework
+![Screenshot 2025-04-04 033143](https://github.com/user-attachments/assets/8ae14cd1-74e5-4963-8738-0f2cf2bb6095)
 
 ![contributions](https://img.shields.io/badge/all_contributors-1-orange.svg)
 ![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
