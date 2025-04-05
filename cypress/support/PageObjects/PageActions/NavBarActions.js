@@ -1,6 +1,7 @@
 const navBarElements = require("../PageElements/NavBarElements.json")
 const homePageElements = require("../PageElements/HomePageElements.json")
 const filteredProductsElements = require("../PageElements/FilteredProductsPageElements.json")
+const loginPageElements = require("../PageElements/LoginPageElements.json")
 
 class NavBarActions {
     verifyLogo() {
@@ -42,10 +43,21 @@ class NavBarActions {
     verifyLogin() {
         cy.log('Verifying login button');
         try {
-            cy.wait(3000);
-            cy.get(navBarElements.login_button, { timeout: 10000 })
-                .should("exist")
+            cy.get(loginPageElements.login_form, { timeout: 10000 })
+            .should('exist')
+            .should('be.visible')
+            .within(() => {
+                // Verify critical elements within the form exist
+                cy.get(loginPageElements.email_field)
+                .should('exist')
                 .should("be.visible");
+                cy.get(loginPageElements.password_field)
+                .should('exist')
+                .should("be.visible")
+                cy.get(loginPageElements.login_button)
+                .should('exist')
+                .should("be.visible")
+            });
             cy.log('Login button verified successfully');
 
         } catch (e) {
@@ -68,32 +80,61 @@ class NavBarActions {
         return this;
     }
     
-    search(searchTerm){
-        cy.log(`Performing search: "${searchTerm || 'empty search'}"`);
-        try {
-            // Intercept the search API call
-            cy.intercept('GET', '**/api/v1/products**').as('searchResults');
-
-            if(searchTerm == undefined ||  searchTerm == "") {
-                cy.get(navBarElements.search_button).click();
-                cy.log('Empty search performed');
+    clickSearch() {
+            cy.log('Clicking search button');
+            try {
                 // Wait for the search results API response
-                cy.wait('@searchResults', { timeout: 15000 });
+                // cy.wait('@searchResults', { timeout: 15000 });
                 /* 
-                    Within the design of the application
-                    There is no loading screen or peculiar marking to 
-                    idenfity change in product list.
-                    This is a design problem, so using an explicit wait,
-                    This is considered bad practise
+                    The problem with interscepting requests is that
+                    Redux Caches Results on the fronty end. 
+                    And our test data is checing for Apples within Different Contexts
+                    So for each Context a seperate request is not made.
+                    By Design the app does not add an alt identifier to the
+                    products, or add a Loading UI
+                
+                    The only next workaround is to prestore content 
+                    and compare after search is performed
                 */
-                cy.wait(2000)
+                cy.get(navBarElements.search_button).click();
+                cy.log('Search button clicked successfully');
+
+                if (Cypress.env('empty_search')) {
+                    cy.log(`Filter options should not appear, exit test`);
+                    return this;
+                }
+                
+                cy.get(filteredProductsElements.product_grid)
+                .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+                cy.log('Successfully clicked Go button');
+                // Wait for filter options to be visible (indicating search results page loaded)
                 cy.get(filteredProductsElements.filter_options, { timeout: 10000 })
-                .should('exist')
-                .and('be.visible');
-                cy.log('Search results loaded successfully');
+                    .should('exist')
+                    .and('be.visible');
+            } catch (e) {
+                cy.log(`Error clicking search button: ${e.message}`);
+                throw new Error(`Failed to click search button. Original error: ${e.message}`);
+            }
+            
+            return this;
+        }
+
+    search(searchTerm) {
+        cy.log(`Performing search: "${searchTerm || 'empty search'}"`);
+        if(searchTerm === null || searchTerm === "" || searchTerm === undefined){
+            Cypress.env("empty_search", true);
+        }
+        try {
+            if(searchTerm == undefined || searchTerm == "") {
+                // For empty searches, use the clickSearch method
+                return this.clickSearch();
             } else {
+                // For searches with terms, enter the term first
                 cy.get(navBarElements.search_bar).clear().type(searchTerm);
                 cy.log(`Search term "${searchTerm}" entered successfully`);
+                
+                // Then use the clickSearch method to submit
+                return this.clickSearch();
             }
         } catch (e) {
             cy.log(`Error performing search: ${e.message}`);
@@ -136,23 +177,23 @@ class NavBarActions {
     navigateToMyProfile() {
         cy.log('Navigating to my profile page');
         try {
-            //  Login mechanism is Complex and involves a lot of state changes
-            //  Wait until the DOM is updated and tokens are stored in Local Storage
-            cy.wait(4000)
-            // Click the profile button first to show the dropdown
-            cy.get(navBarElements.profile_action_buttons)
+            cy.get(navBarElements.profile_action_buttons, { timeout: 10000 })
+            .should('exist')
             .should('be.visible')
+            .should('not.be.disabled')
             .click();
 
             // Then interact with the dropdown
-            cy.get(navBarElements.profile_dropdown)
+            cy.get(navBarElements.profile_dropdown, { timeout: 5000 })
             .should('be.visible')
             .within(() => {
-                cy.get('a[href*="/me/profile"]').click();
+                cy.get('a[href*="/me/profile"]')
+                    .should('be.visible')
+                    .click();
             });
 
             // Verify we've navigated to the profile page
-            cy.url().should('include', '/me');
+            cy.url({ timeout: 10000 }).should('include', '/me');
             cy.log('Successfully navigated to profile page');
         } catch (e) {
             cy.log(`Error navigating to profile page: ${e.message}`);

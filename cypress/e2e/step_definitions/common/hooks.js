@@ -41,7 +41,6 @@ export function getPageObject(name) {
 // Before each scenario hook with updated syntax for Cypress 14
 Before(function() {
   cy.log('HOOK: Before each scenario executed');
-  
   // Handle uncaught exceptions
   Cypress.on('uncaught:exception', (err, runnable) => {
     return false;

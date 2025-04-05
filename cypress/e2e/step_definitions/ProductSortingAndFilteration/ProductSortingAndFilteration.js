@@ -5,7 +5,7 @@ When('I search for {string}', function(keyword) {
   cy.log(`Entering search keyword: "${keyword || '[empty]'}"`);
   getPageObject('navBarActions').search(keyword);
   cy.log('Clicking search button');
-  getPageObject('navBarActions').search();
+  getPageObject('navBarActions').clickSearch();
 });
 
 Then('I should see search results for {string}', function(keyword) {

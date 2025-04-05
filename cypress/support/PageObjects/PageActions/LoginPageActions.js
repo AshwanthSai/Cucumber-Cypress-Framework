@@ -70,7 +70,7 @@ class LoginPageActions {
         return this;
     }
 
-    getMessage(expectedMessage) {
+    static getMessage(expectedMessage) {
         cy.log(`Checking for message: "${expectedMessage || '[none]'}"`);
         
         if(expectedMessage === "") {
@@ -125,16 +125,17 @@ class LoginPageActions {
     loginAsRegisteredUser() {
         const defaultEmail = Cypress.env('DEFAULT_USER_EMAIL') || 'test@admin.com';
         const defaultPassword = Cypress.env('DEFAULT_USER_PASSWORD') || 'test@admin.com';
-        
+        const baseUrl = Cypress.env('BASE_URL') || 'https://portfoliosai.link/sydneykart/';
+
         cy.log(`Logging in as registered user: ${defaultEmail}`);
         try {
             this.enterEmail(defaultEmail)
                 .enterPassword(defaultPassword)
                 .clickLogin();
-            // Login involves, a lot of Intenal State Mutations. 
-            // We need to slowdown, else tests will Break.
-            cy.wait(4000)
             cy.log('Registered user login attempt completed');
+            // Wait for URL to change to home page (with trailing slash)
+            cy.url({ timeout: 10000 }).should('eq', baseUrl);
+            cy.log(`Successfully redirected to home page: ${baseUrl}`);
         } catch (e) {
             cy.log(`Error during registered user login: ${e.message}`);
             throw new Error(`Failed to login as registered user. Original error: ${e.message}`);

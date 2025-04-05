@@ -28,12 +28,13 @@ class MyProfilePageActions {
             MyProfilePageActions.getMessage("Avatar updated");
             
             // Verify there's a visible image with proper source URL
-            cy.get(myProfilePageElements.profile_avatar)
-                .should('be.visible')
-                .should('have.attr', 'src')
-                .and('include', 'cloudinary')
-                .and('include', 'SydneyKart/avatar')  
-                .and('not.include', 'default');
+            cy.get(myProfilePageElements.profile_avatar, { timeout: 15000 })
+            .should('be.visible')
+            .should('have.attr', 'src')
+            .and('include', 'cloudinary')
+            .and('include', 'SydneyKart/avatar')  
+            .and('not.include', 'default');
+                
                     
             // Check image has loaded properly
             cy.get(myProfilePageElements.profile_avatar)
@@ -132,11 +133,24 @@ class MyProfilePageActions {
                 expect(toastExists).to.be.false;
             });
         } else {
-            cy.get('.Toastify', { timeout: 5000 }).within(() => {
-                cy.get('.Toastify__toast--error, .Toastify__toast')
-                  .should('exist')
-                  .and('contain.text', expectedMessage);
-            });     
+            cy.window().then((win) => {
+                win.document.querySelectorAll('.Toastify__progress-bar').forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                    el.style.WebkitAnimationPlayState = 'paused';
+                });
+                
+                // Optional: Override close timeout
+                if (win.Toastify) {
+                    win.Toastify.autoCloseDelay = 99999;
+                }
+            });
+            
+            // Now check for the toast message
+            cy.get('.Toastify__toast', { timeout: 10000 })
+                .should('be.visible')
+                .and('contain.text', expectedMessage);
+            
+            cy.log(`Found toast message containing: "${expectedMessage}"`);     
         }
         return MyProfilePageActions;  
     }
@@ -149,10 +163,28 @@ class MyProfilePageActions {
                 this.clickUploadAvatar();
             }
             
+            // Select the file and wait for it to be loaded
             cy.get(myProfilePageElements.insert_image_button)
-            .selectFile('cypress/fixtures/images/profile-avatar.jpg', { force: true });
-            // Wait until jpeg is converted to data url and ready to be send to backend.
-            cy.wait(4000)
+                .selectFile('cypress/fixtures/images/profile-avatar.jpg', { force: true })
+                .then($input => {
+                    // Verify file is selected
+                    cy.wrap($input)
+                        .should('have.prop', 'files')
+                        .and('have.length', 1);
+                    
+                    // Get the file name
+                    const fileName = $input[0].files[0].name;
+                    cy.log(`File selected: ${fileName}`);
+                    
+                    // If there's a preview element, wait for it to update
+                    if (Cypress.$(myProfilePageElements.avatar_preview).length) {
+                        cy.get(myProfilePageElements.avatar_preview)
+                            .should('be.visible')
+                            .should('have.attr', 'src')
+                            .and('not.include', 'default');
+                    }
+                });
+            
             cy.log('File attached successfully');
         } catch (e) {
             cy.log(`Error uploading avatar: ${e.message}`);
@@ -169,9 +201,9 @@ class MyProfilePageActions {
                 .should('be.visible')
                 .click();
 
-            // There is a small delay when submitting a multipartform.
-            // Number found with trial and error
-            cy.wait(5500);   
+            cy.url({ timeout: 10000 }).should('include', '/me/profile');
+            cy.log('Successfully redirected to profile page');
+
             // Verify success message
             MyProfilePageActions.getMessage("Avatar updated");
             cy.log('Avatar uploaded successfully');

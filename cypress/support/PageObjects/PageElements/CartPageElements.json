@@ -3,5 +3,9 @@
     "decrease_quantity_button": ".btn-danger",
     "add_to_cart_button": "#cart_btn",
     "cart_button": "#cart_count",
-    "checkout_button": "#checkout_btn"
+    "checkout_button": "#checkout_btn",
+    "cart_count": "#cart_count",
+    "order_summary": "#order_summary",
+    "order_units": "#order_summary .order-summary-values:first-of-type",
+    "order_total": "#order_summary .order-summary-values:last-of-type"
 }

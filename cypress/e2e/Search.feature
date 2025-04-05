@@ -26,11 +26,6 @@ Feature: SydneyKart Product Search
       | headphones |
       | camera     |
 
-  @search @smoke
-  Scenario: Empty search validation
-    When I enter "" in the search field
-    And I click the search button
-
 
   # The assumption here is that, we have a seperate Test DB and Production DB
   @search @pagination

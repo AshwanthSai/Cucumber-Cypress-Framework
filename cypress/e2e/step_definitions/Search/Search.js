@@ -4,12 +4,13 @@ const { getPageObject } = require("../common/hooks");
 // Search steps
 When('I enter {string} in the search field', function(keyword) {
   cy.log(`Entering search keyword: "${keyword || '[empty]'}"`);
-  getPageObject('navBarActions').search(keyword);
-});
+    getPageObject('navBarActions').search(keyword);
+  }
+);
 
 When('I click the search button', function() {
   cy.log('Clicking search button');
-  getPageObject('navBarActions').search();
+  getPageObject('navBarActions').clickSearch();
 });
 
 // Pagination steps

@@ -8,5 +8,8 @@
     "my_profile_option": "[href=`/sydneykart/me/profile`]",
     "toast" : ".Toastify",
     "toast_message" : ".Toastify__toast",
-    "toast_error_message" : ".Toastify__toast--error"
+    "toast_error_message" : ".Toastify__toast--error",
+    "login_form": "form.shadow.rounded.bg-body",
+    "email_field" : "#email_field",
+    "password_field" : "#password_field"
 }

@@ -26,7 +26,6 @@ When('I click continue to payment', function() {
   getPageObject('shippingPageActions').clickContinuetoPayment();
 });
 
-/* ===== Payment Selection Steps ===== */
 Then('I should be redirected to the payment selection page', function() {
   cy.log('Verifying redirect to payment selection page');
   getPageObject('shippingPageActions').verifyPaymentPage();
@@ -52,7 +51,6 @@ When('I click proceed with payment', function() {
   getPageObject('shippingPageActions').verifyPaymentPage();
 });
 
-/* ===== Order Listing Steps ===== */
 Then('I should be redirected to my orders page', function() {
   cy.log('Verifying redirect to orders page');
   getPageObject('ordersPageActions').verifyRedirectToOrderDetailsPage();
@@ -73,7 +71,6 @@ When('I click on the first order from the list', function() {
   getPageObject('ordersPageActions').clickFirstOrder();
 });
 
-/* ===== Order Detail Steps ===== */
 Then('I should be redirected to the order detail page', function() {
   cy.log('Verifying headphone product appears in order');
   
@@ -85,7 +82,6 @@ Then('I should be redirected to the order detail page', function() {
   getPageObject('ordersPageActions').verifyProduct(headphoneName);
 });
 
-/* ===== Invoice Steps ===== */
 When('I click Print Invoice', function() {
   cy.log('Clicking on Print Invoice button');
   getPageObject('ordersPageActions').clickInvoiceButton();
@@ -101,7 +97,6 @@ When('I click "Download Invoice"', function() {
   getPageObject('invoicePageActions').downloadInvoicePDF();
 });
 
-/* ===== Download Verification Steps ===== */
 Then('the invoice should be downloaded to my computer', function() {
   cy.log('This step combined with "downloaded file should match the order number"');
 });
@@ -109,26 +104,25 @@ Then('the invoice should be downloaded to my computer', function() {
 Then('the downloaded file should match the order number', function() {
   cy.log('Verifying downloaded file matches order number');
   
-  // Wait for download to complete
-  cy.wait(2000);
-  
-  // Debug: List all files in downloads folder
-  cy.task('listFiles').then(files => {
-    cy.log(`Files in downloads folder: ${files.join(', ')}`);
-  });
-  
   // Get the stored order ID
   const orderId = Cypress.env('currentOrderId');
   if (!orderId) {
     throw new Error('Order ID not found in Cypress environment');
   }
   
-  // Verify the download
-  getPageObject('invoicePageActions').verifyInvoice();
+  // Wait for a file containing the order ID to be downloaded
+  cy.task('waitForDownload', orderId, 15000).then(filename => {
+    cy.log(`✅ File downloaded: ${filename}`);
+    
+    // Store the actual filename for verification
+    Cypress.env('invoiceFile', filename);
+    
+    // Verify the download
+    getPageObject('invoicePageActions').verifyInvoice();
+  });
 });
 
 
-// Add these to your OrderConfirmation.js file
 When('I select Card Payment as payment method', function() {
   cy.log('Selecting Card Payment method');
   getPageObject('paymentPageActions').selectCardPayment();
@@ -142,7 +136,6 @@ Then('I should see the Stripe payment form', function() {
 
 
 Then('I should see the invoice PDF downloaded', function() {
-  // Simple check that any PDF file exists
   cy.task('listFiles').then(files => {
     const pdfExists = files.some(file => file.endsWith('.pdf'));
     expect(pdfExists).to.be.true;

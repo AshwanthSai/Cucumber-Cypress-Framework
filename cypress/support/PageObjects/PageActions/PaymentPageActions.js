@@ -43,9 +43,6 @@ class PaymentPageActions {
         cy.log('Verifying redirect to Stripe checkout');
         
         try {
-            // Allow time for redirect to happen
-            cy.wait(3000);
-            
             // Simply check if URL changes to include Stripe domain
             cy.url({ timeout: 20000 })
                 .should('include', 'checkout.stripe.com')

@@ -114,8 +114,6 @@ class OrdersPageActions {
             throw new Error(`Failed to click the first order. Original error: ${e.message}`);
         }
         
-        // Wait for page transition after click
-        cy.wait(2000);
         return this;
     }
 

@@ -1,7 +1,6 @@
 const filteredProductsElements = require("../PageElements/FilteredProductsPageElements.json")
 
 class FilteredProductsPageActions {
-
       verifySearchResults(expectedKeyword, expectedMinCount = 1) {
         cy.log(`Verifying search results for keyword: ${expectedKeyword}`);
         try {
@@ -85,15 +84,28 @@ class FilteredProductsPageActions {
       clickGoButton() {
         cy.log('Clicking Go button');
         try {
+            /* 
+                The below is to asset that the DOM is updated
+                with filtered content.
+                Prestore products within Product Grid.
+                Compare them after filter operation to verify DOM Update
+            */
             cy.get(filteredProductsElements.go_button)
                 .should('exist')
                 .and('be.visible')
                 .click();
-                
-            cy.log('Successfully clicked Go button');
             
-            // Wait for results to update after clicking
-            cy.wait(1000);
+            /* Wait for Product List Grid to be re-rendered and remain stable */
+            cy.get(filteredProductsElements.product_grid)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+            cy.log('Successfully clicked Go button');
+ 
+            
+            // Wait for filter options to be visible (indicating search results page loaded)
+            cy.get(filteredProductsElements.filter_options, { timeout: 10000 })
+                .should('exist')
+                .and('be.visible');
+
         } catch (e) {
             cy.log(`Error clicking Go button: ${e.message}`);
             throw new Error(`Failed to click Go button. Error: ${e.message}`);
@@ -160,10 +172,18 @@ class FilteredProductsPageActions {
         cy.get(`input[value='${category}']`).then($el => {
             if ($el.length) {
                 cy.wrap($el).check();
+                /* Wait for Product List Grid to be re-rendered and remain stable */
+                cy.get(filteredProductsElements.product_grid)
+                .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+                cy.log('Successfully clicked Go button');
             } else {
                 // Try with lookup in elements file
                 const key = `${category.toLowerCase()}_category_checkbox`;
                 cy.get(filteredProductsElements[key]).check();
+                /* Wait for Product List Grid to be re-rendered and remain stable */
+                cy.get(filteredProductsElements.product_grid)
+                .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+                cy.log('Successfully clicked Go button');
             }
         });
         return this;
@@ -180,6 +200,10 @@ class FilteredProductsPageActions {
           };
           
           cy.get(ratingMap[rating]).check();
+            /* Wait for Product List Grid to be re-rendered and remain stable */
+            cy.get(filteredProductsElements.product_grid)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+            cy.log('Successfully clicked Go button');
           return this;
       }
 
@@ -217,8 +241,6 @@ class FilteredProductsPageActions {
         }
         return this;
       }
-
-
 }
 
 module.exports = FilteredProductsPageActions;

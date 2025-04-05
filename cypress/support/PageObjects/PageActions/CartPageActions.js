@@ -17,17 +17,22 @@ class CartPageActions {
             cy.log('Increasing quantity 3 times');
             // Click multiple times with a slight delay between clicks
             cy.get(cartPageElements.increase_quantity_button).click({force: true});
-            cy.wait(300); // Small delay to ensure click was processed
+            cy.get(cartPageElements.increase_quantity_button)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
             cy.get(cartPageElements.increase_quantity_button).click({force: true});
-            cy.wait(300);
+            cy.get(cartPageElements.increase_quantity_button)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
             cy.get(cartPageElements.increase_quantity_button).click({force: true});
+            cy.get(cartPageElements.increase_quantity_button)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
 
             cy.log('Decreasing quantity 1 time');
             cy.get(cartPageElements.decrease_quantity_button)
               .should("exist")
               .and("be.visible");
             cy.get(cartPageElements.decrease_quantity_button).click({force: true});
-            cy.wait(300); // Small delay to ensure click was processed
+            cy.get(cartPageElements.increase_quantity_button)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
             
             // Net 3 Products (assuming starting quantity is 1)
             cy.log('Adding final quantity to cart');
@@ -45,20 +50,23 @@ class CartPageActions {
         return this;
     }
     
-    clickCart(){
+    clickCart() {
         cy.log('Navigating to checkout page');
         try {
-            // Verify cart button exists and is visible
+            // Click cart button
             cy.get(cartPageElements.cart_button)
                 .should("exist")
                 .and("be.visible")
                 .click({force: true});
             cy.log('Clicked on cart button');
             
-            cy.wait(5000); 
-            cy.log('Waiting for 2 seconds before proceeding...');
-
-            // Verify checkout button exists and is visible
+            // Wait for order summary to appear instead of arbitrary wait
+            cy.get(cartPageElements.order_summary, { timeout: 10000 })
+                .should('exist')
+                .and('be.visible');
+            cy.log('Order summary loaded successfully');
+    
+            // Verify checkout button and click
             cy.get(cartPageElements.checkout_button)
                 .should("exist")
                 .and("be.visible")
