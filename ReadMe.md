@@ -26,7 +26,6 @@ To showcase my expertise in Behavior-Driven Development (BDD) and testing, I dev
 
 ### Cypress Test Automation
 - **Global Timeouts in Cypress**: Configured to handle varying response times and ensure test reliability.
-- **Parallel Execution**: Reduces test execution time and increases efficiency.
 - **Cypress Login & Authentication**: Validates user authentication processes for secure access.
 - **Cypress Form Submissions**: Tests form inputs and submission behaviors.
 - **Cypress Data Display**: Verifies dynamic content loading, such as:
@@ -35,10 +34,10 @@ To showcase my expertise in Behavior-Driven Development (BDD) and testing, I dev
 - **Cypress Stripe Payments**: Ensures proper integration and functionality of Stripe payment processing.
 - **Cypress File Uploads**: Validates correct operation of file upload features.
 - **Cypress Product Filtering and Sorting**: Tests product filters and sorting options.
-- **Order Confirmation Process**: Verifies the accuracy and reliability of the order confirmation workflow.
+- **Order Confirmation Process**: Verifies the accuracy and reliability of the order confirmation workflow, including downloading of invoice.
 
 ### Summary
-While the test suite is not exhaustive, it includes common **Gherkin** and **BDD** combinations, providing a comprehensive overview of testing strategies in a BDD-driven **Cypress** automation framework.
+While the test suite is not exhaustive, it includes common **Gherkin** and **BDD, Cypress** combinations, providing a comprehensive overview of testing strategies in a BDD-driven Cypress automation framework.
 
 [![Cucumber](https://img.shields.io/badge/Cucumber-Green?style=flat&logo=cucumber)](https://cucumber.io/)
 [![Cypress](https://img.shields.io/badge/Cypress-17202C?style=flat&logo=cypress&logoColor=white)](https://www.cypress.io/)
@@ -105,13 +104,8 @@ We need to install or make sure that these tools are pre-installed on your machi
 To run Cypress in headless mode, use the following command:
 
 ```sh
-npm run headless --tags="not @login and @regression or @smoke"
-```
-
-To run tests in headless mode with parallel execution:
-
-```sh
-npm run headless:parallel
+npm run test:login
+where @login is tag for all login, test scenarios
 ```
 
 #### Run Headed Mode
@@ -119,21 +113,7 @@ npm run headless:parallel
 To run Cypress in headed mode, use the following command:
 
 ```sh
-npm run start --tags="not @login and @regression or @smoke"
-```
-
-To run tests in headed mode with parallel execution:
-
-```sh
-npm run start:parallel
-```
-
-#### Run Tests with Cypress-Parallel
-
-For advanced parallel execution using `cypress-parallel`, use:
-
-```sh
-npm run cy:parallel
+ npm run start 
 ```
 
 ### Viewing the Test Report
@@ -143,24 +123,6 @@ To generate and view the test report, use the command:
 ```sh
 npm run report
 ```
-
-### Running a Live Server for the Cypress Report
-
-1. Navigate to the report directory:
-
-   ```sh
-   cd cypress/report
-   ```
-
-2. Open `index.html` in a browser or run a local server:
-
-   ```sh
-   npx http-server
-   ```
-
-   This will start a simple web server, allowing you to view the report in your browser. You can then access the report by navigating to the address provided by `http-server` (usually `http://localhost:8080`).
-
-
 
 ## ⚒️ How to Contribute
 

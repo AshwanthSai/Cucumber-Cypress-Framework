@@ -23,5 +23,5 @@
     "current_password_field": "#currentPassword",
     "new_password_field": "#newPassword",
     "confirm_password_field": "#confirmPassword",
-    "avatar_preview": ".avatar-preview img"
+    "avatar_preview": ".me-3 > .avatar > .rounded-circle"
 }

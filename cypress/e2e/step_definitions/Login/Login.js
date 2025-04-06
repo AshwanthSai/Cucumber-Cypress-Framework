@@ -1,8 +1,7 @@
-const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
+const { When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 const { getPageObject } = require("../common/hooks");
 
 
-// Form interaction steps
 When('I click on the login button', function() {
   cy.log('Clicking login button');
   getPageObject('navBarActions').clickLogin();

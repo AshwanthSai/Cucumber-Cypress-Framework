@@ -789,25 +789,29 @@ input#darkCheck:checked ~ label > svg#moon {
                     
                         <i class="fa fa-tags fa-lg"></i>
                         
-                            <span class="tag">@login</span>
+                            <span class="tag">@search</span>
                         
                             <span class="tag">@smoke</span>
+                        
+                            <span class="tag">@regression</span>
+                        
+                            <span class="tag">@pagination</span>
                         
                     
                 
             </div>
             <h1>Feature:
-                <small>SydneyKart Authentication</small>
+                <small>SydneyKart Product Search</small>
             </h1>
             
                 <p>
-                    <strong>Description: </strong>   As a customer<br>  I want to log into my account<br>  So that I can access my personal information </p>
+                    <strong>Description: </strong>   As a customer<br>  I want to search for products<br>  So that I can find items I wish to purchase </p>
                 
                <p><strong>File name:</strong>
-                    Login.feature
+                    Search.feature
                 </p>
                 <p><strong>Relative path:</strong>
-                    e2e/Login.feature</p>
+                    e2e/Search.feature</p>
             
         </div>
 
@@ -995,7 +999,7 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                             <i class="fa fa-tags fa-lg"></i>
                             
-                                <span class="tag">@login</span>
+                                <span class="tag">@search</span>
                             
                                 <span class="tag">@smoke</span>
                             
@@ -1003,7 +1007,7 @@ input#darkCheck:checked ~ label > svg#moon {
                     
                 </div>
 
-                <h2>Scenario Outline: <small>Login with different credentials</small></h2>
+                <h2>Scenario: <small>Empty search validation</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1020,7 +1024,7 @@ input#darkCheck:checked ~ label > svg#moon {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">10</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
                         </li>
                     
 
@@ -1035,8 +1039,6 @@ input#darkCheck:checked ~ label > svg#moon {
             <div class="x_content" style="display: none;">
                 <div class="scenario-step-container"></div>
                     
-                        
-                
                         
                 
                         
@@ -1250,7 +1252,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        I click on the login button
+                                        I enter "" in the search field
                                         
                                     
 
@@ -1314,135 +1316,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        I enter "test@admin.com" in the email field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I enter "test@admin.com" in the password field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I click the submit button
+                                        I click the search button
                                         
                                     
 
@@ -1506,135 +1380,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        I should see message ""
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the system should "Redirect to Home"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the user status should be "logged in"
+                                        I should not see any new products
                                         
                                     
 
@@ -1699,15 +1445,15 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                             <i class="fa fa-tags fa-lg"></i>
                             
-                                <span class="tag">@login</span>
+                                <span class="tag">@search</span>
                             
-                                <span class="tag">@smoke</span>
+                                <span class="tag">@regression</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario Outline: <small>Login with different credentials</small></h2>
+                <h2>Scenario Outline: <small>Search for products with different keywords</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1724,7 +1470,7 @@ input#darkCheck:checked ~ label > svg#moon {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">10</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
                         </li>
                     
 
@@ -1739,8 +1485,6 @@ input#darkCheck:checked ~ label > svg#moon {
             <div class="x_content" style="display: none;">
                 <div class="scenario-step-container"></div>
                     
-                        
-                
                         
                 
                         
@@ -1954,7 +1698,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        I click on the login button
+                                        I enter "laptop" in the search field
                                         
                                     
 
@@ -2018,135 +1762,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        I enter "test@example.com" in the email field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I enter "password123" in the password field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I click the submit button
+                                        I click the search button
                                         
                                     
 
@@ -2210,135 +1826,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        I should see message "Invalid email or password"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the system should "No Redirect"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the user status should be "not logged in"
+                                        I should see products related to "laptop"
                                         
                                     
 
@@ -2403,15 +1891,15 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                             <i class="fa fa-tags fa-lg"></i>
                             
-                                <span class="tag">@login</span>
+                                <span class="tag">@search</span>
                             
-                                <span class="tag">@smoke</span>
+                                <span class="tag">@regression</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario Outline: <small>Login with different credentials</small></h2>
+                <h2>Scenario Outline: <small>Search for products with different keywords</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -2428,7 +1916,7 @@ input#darkCheck:checked ~ label > svg#moon {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">10</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
                         </li>
                     
 
@@ -2443,8 +1931,6 @@ input#darkCheck:checked ~ label > svg#moon {
             <div class="x_content" style="display: none;">
                 <div class="scenario-step-container"></div>
                     
-                        
-                
                         
                 
                         
@@ -2658,7 +2144,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        I click on the login button
+                                        I enter "headphones" in the search field
                                         
                                     
 
@@ -2722,135 +2208,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        I enter "test@admin.com" in the email field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I enter "password12345" in the password field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I click the submit button
+                                        I click the search button
                                         
                                     
 
@@ -2914,135 +2272,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        I should see message "Invalid email or password"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the system should "No Redirect"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the user status should be "not logged in"
+                                        I should see products related to "headphones"
                                         
                                     
 
@@ -3107,15 +2337,15 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                             <i class="fa fa-tags fa-lg"></i>
                             
-                                <span class="tag">@login</span>
+                                <span class="tag">@search</span>
                             
-                                <span class="tag">@smoke</span>
+                                <span class="tag">@regression</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario Outline: <small>Login with different credentials</small></h2>
+                <h2>Scenario Outline: <small>Search for products with different keywords</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -3132,7 +2362,7 @@ input#darkCheck:checked ~ label > svg#moon {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">10</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
                         </li>
                     
 
@@ -3147,8 +2377,6 @@ input#darkCheck:checked ~ label > svg#moon {
             <div class="x_content" style="display: none;">
                 <div class="scenario-step-container"></div>
                     
-                        
-                
                         
                 
                         
@@ -3362,7 +2590,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        I click on the login button
+                                        I enter "camera" in the search field
                                         
                                     
 
@@ -3426,135 +2654,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        I enter "" in the email field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I enter "password123" in the password field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I click the submit button
+                                        I click the search button
                                         
                                     
 
@@ -3618,135 +2718,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        I should see message "Please enter email & password"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the system should "No Redirect"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the user status should be "not logged in"
+                                        I should see products related to "camera"
                                         
                                     
 
@@ -3811,15 +2783,15 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                             <i class="fa fa-tags fa-lg"></i>
                             
-                                <span class="tag">@login</span>
+                                <span class="tag">@search</span>
                             
-                                <span class="tag">@smoke</span>
+                                <span class="tag">@pagination</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario Outline: <small>Login with different credentials</small></h2>
+                <h2>Scenario: <small>Pagination navigation for search results</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -3836,7 +2808,7 @@ input#darkCheck:checked ~ label > svg#moon {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">10</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">17</span>
                         </li>
                     
 
@@ -3851,10 +2823,6 @@ input#darkCheck:checked ~ label > svg#moon {
             <div class="x_content" style="display: none;">
                 <div class="scenario-step-container"></div>
                     
-                        
-                
-                        
-                
                         
                 
                         
@@ -4063,202 +3031,138 @@ input#darkCheck:checked ~ label > svg#moon {
                                 
 
                                 <div class="text">
+                                    <span class="keyword highlight">Given </span>
+
+                                    
+                                        I enter "laptop" in the search field
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        I click the search button
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        I click on the login button
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I enter "test@example.com" in the email field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I enter "" in the password field
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        I click the submit button
+                                        I view the pagination component
                                         
                                     
 
@@ -4322,7 +3226,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        I should see message "Please enter email & password"
+                                        I should see the current page indicator showing "1"
                                         
                                     
 
@@ -4386,7 +3290,135 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        the system should "No Redirect"
+                                        I should see navigation options for multiple pages
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">When </span>
+
+                                    
+                                        I click on the "Next" button
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Then </span>
+
+                                    
+                                        I should be navigated to page "2"
                                         
                                     
 
@@ -4450,7 +3482,391 @@ input#darkCheck:checked ~ label > svg#moon {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        the user status should be "not logged in"
+                                        the current page indicator should show "2"
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">When </span>
+
+                                    
+                                        I click on the "Previous" button
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Then </span>
+
+                                    
+                                        I should be navigated to page "1"
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the current page indicator should show "1"
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">When </span>
+
+                                    
+                                        I click on the "3" button
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Then </span>
+
+                                    
+                                        I should be navigated to page "3"
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the current page indicator should show "3"
                                         
                                     
 

@@ -4,7 +4,9 @@ const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
+const userData = require('./cypress/fixtures/users.json');
+const productData = require('./cypress/fixtures/products.json');
+
 
 module.exports = defineConfig({
   e2e: {
@@ -82,24 +84,6 @@ module.exports = defineConfig({
           return fs.existsSync(filePath);
         },
         
-        // Get file size
-        getFileSize(filename) {
-          const filePath = path.join(__dirname, 'cypress/downloads', filename);
-          if (!fs.existsSync(filePath)) return 0;
-          const stats = fs.statSync(filePath);
-          return stats.size;
-        },
-        
-        // Calculate file checksum
-        getFileChecksum(filename) {
-          const filePath = path.join(__dirname, 'cypress/downloads', filename);
-          if (!fs.existsSync(filePath)) return '';
-          
-          const fileBuffer = fs.readFileSync(filePath);
-          const hashSum = crypto.createHash('sha256');
-          hashSum.update(fileBuffer);
-          return hashSum.digest('hex');
-        }
       });
 
       return config;

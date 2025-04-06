@@ -8,9 +8,14 @@
     "report": "node ./cypress/reports/generateReport.js",
     "headless": "cypress run --headless",
     "start": "cypress run ",
+    "test:tags": "cross-env cypress run --env tags=%npm_config_tags%",
     "serve:report": "live-server --port=8080 --open=./cypress/reports/dashboard/index.html",
-    "cy:parallel": "cypress-parallel -s start -t 2 -d ./cypress/e2e/ -a  m false ",
-    "test:feature": "cypress run --headless --spec"
+    "test:feature": "cypress run --headless --spec",
+    
+    "test:login": "cypress run --env tags=@login",
+    "test:smoke": "cypress run --env tags=@smoke",
+    "test:regression": "cypress run --env tags=@regression",
+    "test:critical": "cypress run --env tags=@critical"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +25,6 @@
     "@faker-js/faker": "^9.6.0",
     "cypress": "^14.2.1",
     "cypress-file-upload": "^5.0.8",
-    "cypress-parallel": "^0.15.0",
     "cypress-wait-for-stable-dom": "^0.1.0",
     "multiple-cucumber-html-reporter": "^3.9.2"
   },
@@ -37,6 +41,7 @@
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "cross-env": "^7.0.3",
     "cypress-downloadfile": "^1.2.4",
     "esbuild-plugin-polyfill-node": "^0.3.0"
   }

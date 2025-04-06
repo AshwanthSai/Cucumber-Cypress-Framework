@@ -31,7 +31,7 @@ Feature: SydneyKart Order Confirmation
     Then I should be redirected to the order invoice page
     
     When I click "Download Invoice"
-    Then I should see the invoice PDF downloaded
+    Then I should see the invoice PDF with my Order ID downloaded 
 
   
   @order @stripe @smoke

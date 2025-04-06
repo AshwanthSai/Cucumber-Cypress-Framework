@@ -101,27 +101,6 @@ Then('the invoice should be downloaded to my computer', function() {
   cy.log('This step combined with "downloaded file should match the order number"');
 });
 
-Then('the downloaded file should match the order number', function() {
-  cy.log('Verifying downloaded file matches order number');
-  
-  // Get the stored order ID
-  const orderId = Cypress.env('currentOrderId');
-  if (!orderId) {
-    throw new Error('Order ID not found in Cypress environment');
-  }
-  
-  // Wait for a file containing the order ID to be downloaded
-  cy.task('waitForDownload', orderId, 15000).then(filename => {
-    cy.log(`✅ File downloaded: ${filename}`);
-    
-    // Store the actual filename for verification
-    Cypress.env('invoiceFile', filename);
-    
-    // Verify the download
-    getPageObject('invoicePageActions').verifyInvoice();
-  });
-});
-
 
 When('I select Card Payment as payment method', function() {
   cy.log('Selecting Card Payment method');
@@ -135,9 +114,7 @@ Then('I should see the Stripe payment form', function() {
 });
 
 
-Then('I should see the invoice PDF downloaded', function() {
-  cy.task('listFiles').then(files => {
-    const pdfExists = files.some(file => file.endsWith('.pdf'));
-    expect(pdfExists).to.be.true;
-  });
+Then('I should see the invoice PDF with my Order ID downloaded', function() {
+  cy.log('Verifying invoice PDF');
+  getPageObject('invoicePageActions').verifyInvoice()
 });

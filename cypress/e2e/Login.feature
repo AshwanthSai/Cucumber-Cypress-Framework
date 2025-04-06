@@ -10,6 +10,7 @@ Feature: SydneyKart Authentication
     And I open Home Page
 
   @login @smoke
+  
   Scenario Outline: Login with different credentials
     When I click on the login button
     And I enter "<email>" in the email field

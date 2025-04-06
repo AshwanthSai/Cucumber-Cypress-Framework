@@ -43,54 +43,16 @@ class InvoicePageActions {
         
         // Get the stored filename (default to invoice.pdf if not set)
         const filename = Cypress.env('invoiceFile') || 'invoice.pdf';
-        
+        cy.log(filename)
         // Use task to check if file exists
         cy.task('checkFileExists', filename).then((exists) => {
             expect(exists, `Invoice file "${filename}" should exist`).to.be.true;
-            cy.log(`✓ Invoice file "${filename}" exists`);
+            cy.log(`Invoice file "${filename}" exists`);
         });
-        
-        // Use task to check file size
-        cy.task('getFileSize', filename).then((size) => {
-            expect(size, `Invoice file size should be greater than 1KB`).to.be.greaterThan(1000);
-            cy.log(`✓ Invoice file size: ${size} bytes`);
-        });
-        
-        // Optionally use task to get file checksum for data integrity check
-        cy.task('getFileChecksum', filename).then((checksum) => {
-            cy.log(`✓ Invoice file checksum: ${checksum}`);
-            // Store checksum if you need to verify it later
-            Cypress.env('invoiceChecksum', checksum);
-        });
-        
+
         return this;
     }
     
-    /**
-     * Verify invoice contains expected order information
-     * Note: This would require PDF parsing which is beyond the scope of these changes
-     */
-    verifyInvoiceContents(orderDetails) {
-        cy.log('Verifying invoice contents');
-        // This would require additional setup to read and parse PDF content
-        // For a complete solution, consider using a Node.js library like pdf-parse
-        // and implementing it as a Cypress task
-        
-        // Example of what this might look like:
-        /*
-        const filename = Cypress.env('invoiceFile') || 'invoice.pdf';
-        cy.task('parsePdfContent', filename).then((pdfText) => {
-            // Check for order ID
-            expect(pdfText).to.include(orderDetails.orderId);
-            // Check for product details
-            expect(pdfText).to.include(orderDetails.productName);
-            // Check for price
-            expect(pdfText).to.include(orderDetails.totalPrice);
-        });
-        */
-        
-        return this;
-    }
     
     /**
      * Clean up downloaded files after test

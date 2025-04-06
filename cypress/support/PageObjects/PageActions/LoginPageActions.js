@@ -70,7 +70,7 @@ class LoginPageActions {
         return this;
     }
 
-    static getMessage(expectedMessage) {
+    getMessage(expectedMessage) {
         cy.log(`Checking for message: "${expectedMessage || '[none]'}"`);
         
         if(expectedMessage === "") {
@@ -123,16 +123,18 @@ class LoginPageActions {
     }
 
     loginAsRegisteredUser() {
+        // Get credentials directly from Cypress environment variables
         const defaultEmail = Cypress.env('DEFAULT_USER_EMAIL') || 'test@admin.com';
         const defaultPassword = Cypress.env('DEFAULT_USER_PASSWORD') || 'test@admin.com';
         const baseUrl = Cypress.env('BASE_URL') || 'https://portfoliosai.link/sydneykart/';
-
+    
         cy.log(`Logging in as registered user: ${defaultEmail}`);
         try {
             this.enterEmail(defaultEmail)
                 .enterPassword(defaultPassword)
                 .clickLogin();
             cy.log('Registered user login attempt completed');
+            
             // Wait for URL to change to home page (with trailing slash)
             cy.url({ timeout: 10000 }).should('eq', baseUrl);
             cy.log(`Successfully redirected to home page: ${baseUrl}`);

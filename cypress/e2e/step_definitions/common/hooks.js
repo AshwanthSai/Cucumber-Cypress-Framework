@@ -1,7 +1,6 @@
-import { Before, After, Given } from "@badeball/cypress-cucumber-preprocessor";
+import { Before, After } from "@badeball/cypress-cucumber-preprocessor";
 
 // Define base URL
-// const url = Cypress.env('BASE_URL') || 'https://portfoliosai.link/sydneykart';
 
 // Import page objects with ES module syntax
 import NavBarActions from '../../../support/PageObjects/PageActions/NavBarActions';
@@ -17,9 +16,7 @@ import InvoicePageActions from '../../../support/PageObjects/PageActions/Invoice
 import FilteredProductsPageActions from '../../../support/PageObjects/PageActions/FilteredProductsPageActions';
 
 // Initialize page objects for this context
-// Use Cypress.env to share between tests instead of global
 Before(function() {
-  // Create page object instances
   Cypress.env('navBarActions', new NavBarActions());
   Cypress.env('searchPageActions', new SearchPageActions());
   Cypress.env('paginationElementActions', new PaginationElementActions());
@@ -38,10 +35,8 @@ export function getPageObject(name) {
   return Cypress.env(name);
 }
 
-// Before each scenario hook with updated syntax for Cypress 14
 Before(function() {
   cy.log('HOOK: Before each scenario executed');
-  // Handle uncaught exceptions
   Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   });
@@ -62,25 +57,28 @@ After(function() {
   cy.viewport('macbook-15');
 });
 
-// Tag-specific hooks with updated syntax
 Before({ tags: "@smoke" }, function() {
   cy.log('HOOK: Smoke test detected');
 });
 
 Before({ tags: "@regression" }, function() {
   cy.log('HOOK: Regression test detected');
-  // Disable screenshots for regression tests to improve performance
   Cypress.config('screenshotOnRunFailure', false);
 });
 
-// Combined tag example
+
 Before({ tags: "@smoke and @critical" }, function() {
   cy.log('HOOK: Critical smoke test detected');
 });
 
-// OR tag example
+
 Before({ tags: "@mobile or @tablet" }, function() {
   cy.log('HOOK: Mobile or tablet test detected');
   cy.viewport('iphone-x');
 });
 
+//* If you want to run preconditions and postconditions in order
+//* Mention your functions in the form below
+/* Before({ tags: "@execute first", order: 1}, function() {
+  cy.log('Priority Execution');
+}); */

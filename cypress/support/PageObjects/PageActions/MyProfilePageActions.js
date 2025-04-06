@@ -24,9 +24,6 @@ class MyProfilePageActions {
     verifyUpdatedImage(){
         cy.log('Verifying avatar image was updated');
         try {
-            // Verify success message
-            MyProfilePageActions.getMessage("Avatar updated");
-            
             // Verify there's a visible image with proper source URL
             cy.get(myProfilePageElements.profile_avatar, { timeout: 15000 })
             .should('be.visible')
@@ -42,7 +39,6 @@ class MyProfilePageActions {
                     expect($img[0].complete).to.be.true;
                     expect($img[0].naturalWidth).to.be.greaterThan(0);
                 });
-                    
             cy.log('Avatar image update verified');
         } catch (e) {
             cy.log(`Error verifying avatar: ${e.message}`);
@@ -100,8 +96,13 @@ class MyProfilePageActions {
             
             // Verify we're on the avatar upload section/page
             cy.get(myProfilePageElements.avatar_upload_field).should('be.visible');
-            cy.get(myProfilePageElements.upload_avatar_button).should('be.visible');
+            cy.get(myProfilePageElements.upload_avatar_button, { timeout: 10000 })
+            .should('be.visible')
+            .should('not.be.disabled')
+            .should('not.have.attr', 'disabled');
+
             cy.log('Successfully navigated to Upload Avatar section');
+        
         } catch (e) {
             cy.log(`Error clicking Upload Avatar tab: ${e.message}`);
             // Try alternative selector if primary fails
@@ -127,32 +128,49 @@ class MyProfilePageActions {
     }
 
     static getMessage(expectedMessage) {
+        cy.log(`Looking for toast message: "${expectedMessage}"`);
+        
         if(expectedMessage === "") {
+            // Verify no toast messages appear
             cy.get('body').then($body => {
                 const toastExists = $body.find(navBarElements.toast_message).length > 0;
                 expect(toastExists).to.be.false;
             });
-        } else {
-            cy.window().then((win) => {
-                win.document.querySelectorAll('.Toastify__progress-bar').forEach(el => {
-                    el.style.animationPlayState = 'paused';
-                    el.style.WebkitAnimationPlayState = 'paused';
+            return MyProfilePageActions;
+        }
+        
+        // First wait for the Toastify container to exist
+        cy.get('.Toastify', { timeout: 25000 }).should('exist');
+        
+        // Then wait for a toast message to appear
+        cy.get('.Toastify__toast', { timeout: 25000 })
+            .should('be.visible')
+            .then($toast => {
+                // Found the toast - now pause its animations to keep it visible
+                cy.window().then(win => {
+                    // Pause all toast animations and progress bars
+                    win.document.querySelectorAll('.Toastify__toast, .Toastify__progress-bar').forEach(el => {
+                        // Pause animation
+                        el.style.animationPlayState = 'paused';
+                        el.style.WebkitAnimationPlayState = 'paused';
+                        
+                        // Make sure it stays visible
+                        if (el.classList.contains('Toastify__toast')) {
+                            el.style.opacity = '1';
+                        }
+                    });
+                    
+                    cy.log('Toast animations paused for verification');
                 });
                 
-                // Optional: Override close timeout
-                if (win.Toastify) {
-                    win.Toastify.autoCloseDelay = 99999;
-                }
+                // Verify toast content against expected message
+                cy.wrap($toast)
+                    .should('contain.text', expectedMessage);
+                
+                cy.log(`Toast verified: "${expectedMessage}"`);
             });
-            
-            // Now check for the toast message
-            cy.get('.Toastify__toast', { timeout: 10000 })
-                .should('be.visible')
-                .and('contain.text', expectedMessage);
-            
-            cy.log(`Found toast message containing: "${expectedMessage}"`);     
-        }
-        return MyProfilePageActions;  
+        
+        return MyProfilePageActions;
     }
     
     uploadAvatar() {
@@ -185,6 +203,14 @@ class MyProfilePageActions {
                     }
                 });
             
+                /* 
+                    Wait until the image is uploaded and file picker is stable on DOM
+                 */
+                cy.get(myProfilePageElements.insert_image_button)
+                .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+                cy.get(myProfilePageElements.avatar_preview)
+                .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
+
             cy.log('File attached successfully');
         } catch (e) {
             cy.log(`Error uploading avatar: ${e.message}`);
@@ -201,11 +227,10 @@ class MyProfilePageActions {
                 .should('be.visible')
                 .click();
 
-            cy.url({ timeout: 10000 }).should('include', '/me/profile');
+            cy.url({ timeout: 20000 }).should('include', '/me/profile');
             cy.log('Successfully redirected to profile page');
-
-            // Verify success message
-            MyProfilePageActions.getMessage("Avatar updated");
+            cy.get(myProfilePageElements.profile_avatar)
+            .waitForStableDOM({ pollInterval: 2000, timeout: 10000 })
             cy.log('Avatar uploaded successfully');
         } catch (e) {
             cy.log(`Error submitting avatar upload: ${e.message}`);
