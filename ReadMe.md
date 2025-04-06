@@ -1,5 +1,9 @@
 # Cucumber-Cypress Test Framework
-![Screenshot 2025-04-04 033143](https://github.com/user-attachments/assets/8ae14cd1-74e5-4963-8738-0f2cf2bb6095)
+
+![image](https://github.com/user-attachments/assets/13f15a0c-7358-439e-872f-ba319a80abd1)
+
+![image](https://github.com/user-attachments/assets/1fcfa550-6515-4d34-94f2-550d848bc520)
+
 
 ![contributions](https://img.shields.io/badge/all_contributors-1-orange.svg)
 ![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
@@ -8,7 +12,13 @@
 
 
 ## Overview
-To showcase my expertise in Behavior-Driven Development (BDD) and testing, I developed a **Cucumber-Cypress Test Automation Framework** for the e-commerce website **[Sydney Kart](https://portfoliosai.link/sydneykart/)**. This project demonstrates various testing methodologies and best practices.
+To showcase my expertise in Behavior-Driven Development (BDD) and testing, I developed a **Cucumber-Cypress Test Automation Framework** for the e-commerce website **[Sydney Kart](https://portfoliosai.link/sydneykart/)**. 
+
+Cucumber (BDD) -  **Page Object Model (POM)** for structured test elements, **global data parameterization** for flexible data-driven testing, **test tagging** for selective execution, **scenario outlines & data tables** for running multiple test scenarios, **encapsulation & reusable components** leveraging Object-Oriented Programming, **global variables** for consistent data management, **page elements segregation** for better organization, **static & dynamic fixtures** enabling image uploads and dynamic form data, **hook priority execution** for maintaining test integrity, and **test dependency management** using pre-condition and post-condition hooks, ensuring **robust test integrity and scalability**.
+
+Cypress - **login & authentication** for secure access validation, **form submissions** to test input behavior, **data display** for verifying dynamic content like user profiles and pagination, **Stripe payments** for ensuring smooth payment integration, **file uploads** to validate correct operations, **product filtering & sorting** for testing e-commerce functionalities, and **order confirmation process** to verify accuracy and reliability, including invoice downloads.
+
+Video Overview at - https://youtu.be/Y-_bCCR9clE
 
 ### BDD (Behavior-Driven Development)
 #### Key Features
